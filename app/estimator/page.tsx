@@ -16,7 +16,7 @@ import {
   tattooStyles,
 } from "@/lib/data";
 import {
-  DollarSign,
+  IndianRupee,
   Ruler,
   Layers,
   Palette,
@@ -132,7 +132,7 @@ export default function EstimatorPage() {
                       >
                         <span className="font-medium">{size.label}</span>
                         <span className="block text-xs mt-0.5 opacity-60">
-                          ~{size.timeEstimate} · from ${size.basePrice}
+                          ~{size.timeEstimate} · from ₹{size.basePrice}
                         </span>
                       </motion.button>
                     ))}
@@ -280,11 +280,11 @@ export default function EstimatorPage() {
                               transition={{ type: "spring" }}
                             >
                               <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-gold">
-                                ${estimate.low}
+                                ₹{estimate.low}
                               </span>
                               <span className="text-lg text-smoke/40 mx-2">—</span>
                               <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-gold">
-                                ${estimate.high}
+                                ₹{estimate.high}
                               </span>
                             </motion.div>
                             <p className="text-xs text-smoke/40 font-display mt-2">
@@ -352,7 +352,7 @@ export default function EstimatorPage() {
                           exit={{ opacity: 0 }}
                           className="text-center py-8"
                         >
-                          <DollarSign size={40} className="text-gold/20 mx-auto mb-4" />
+                          <IndianRupee size={40} className="text-gold/20 mx-auto mb-4" />
                           <p className="text-sm text-smoke/40 font-display">
                             Select all options to see your estimate
                           </p>
