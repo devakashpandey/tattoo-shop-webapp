@@ -48,10 +48,10 @@ export default function TestimonialsSection() {
   const t = testimonials[current];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-crimson/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-crimson/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
         <div className="relative">
           {/* Quote Icon */}
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <Quote size={40} className="text-gold/20" />
+            <Quote size={40} className="text-crimson/20" />
           </div>
 
           {/* Testimonial Card */}
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
                     <Star
                       key={i}
                       size={16}
-                      className="text-gold fill-gold"
+                      className="text-crimson fill-crimson"
                     />
                   ))}
                 </div>
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
 
                 {/* Author Info */}
                 <div>
-                  <p className="text-sm font-display font-semibold text-gold">
+                  <p className="text-sm font-display font-semibold text-crimson">
                     {t.name}
                   </p>
                   <p className="text-xs text-smoke/50 font-display mt-1">
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => paginate(-1)}
-              className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-crimson/20 flex items-center justify-center text-crimson hover:bg-crimson/10 transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={18} />
@@ -131,8 +131,8 @@ export default function TestimonialsSection() {
                   }}
                   className={`transition-all duration-300 rounded-full ${
                     i === current
-                      ? "w-8 h-2 bg-gold"
-                      : "w-2 h-2 bg-gold/20 hover:bg-gold/40"
+                      ? "w-8 h-2 bg-crimson"
+                      : "w-2 h-2 bg-crimson/20 hover:bg-crimson/40"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -143,7 +143,7 @@ export default function TestimonialsSection() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => paginate(1)}
-              className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-crimson/20 flex items-center justify-center text-crimson hover:bg-crimson/10 transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={18} />

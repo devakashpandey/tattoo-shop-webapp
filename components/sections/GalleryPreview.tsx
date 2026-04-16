@@ -15,8 +15,8 @@ export default function GalleryPreview() {
   const previewItems = galleryItems.slice(0, 6);
 
   return (
-    <section className="relative py-24 md:py-32 bg-charcoal-dark/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-20 bg-charcoal-dark/50">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           subtitle="Portfolio"
           title="Our Work"
@@ -48,7 +48,7 @@ export default function GalleryPreview() {
                   whileHover={{ opacity: 1, scale: 1 }}
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center"
                 >
-                  <ExternalLink size={24} className="text-gold mx-auto mb-2" />
+                  <ExternalLink size={24} className="text-crimson mx-auto mb-2" />
                   <p className="text-xs text-bone font-display">{item.category}</p>
                   <p className="text-[10px] text-smoke/60 font-display">by {item.artist}</p>
                 </motion.div>
@@ -62,13 +62,13 @@ export default function GalleryPreview() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-10"
         >
           <Link href="/gallery">
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-3 border border-gold/30 text-gold font-display font-semibold text-sm rounded-full hover:bg-gold/10 transition-all duration-300 tracking-wide uppercase"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-crimson/30 text-crimson font-display font-semibold text-sm rounded-full hover:bg-crimson/10 transition-all duration-300 tracking-wide uppercase"
             >
               View Full Gallery
               <ExternalLink size={14} />

@@ -82,17 +82,17 @@ export default function EstimatorPage() {
 
   const painColor = (level: number) => {
     if (level <= 2) return "text-green-400";
-    if (level <= 4) return "text-gold";
+    if (level <= 4) return "text-crimson";
     if (level <= 6) return "text-orange-400";
     return "text-crimson-light";
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Page Hero */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gold/5 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <section className="relative py-10 md:py-14 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-crimson/5 via-transparent to-transparent pointer-events-none" />
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <SectionHeading
             subtitle="Know Your Budget"
             title="Price Estimator"
@@ -101,17 +101,17 @@ export default function EstimatorPage() {
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left: Selection Area */}
             <div className="lg:col-span-2 space-y-8">
               {/* Size */}
               <AnimatedSection delay={0}>
-                <div className="glass rounded-xl p-6 border border-gold/5">
+                <div className="glass rounded-xl p-6 border border-crimson/5">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-                      <Ruler size={16} className="text-gold" />
+                    <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center">
+                      <Ruler size={16} className="text-crimson" />
                     </div>
                     <h3 className="text-sm font-display font-semibold text-bone tracking-wider uppercase">
                       Size
@@ -126,8 +126,8 @@ export default function EstimatorPage() {
                         onClick={() => setSelectedSize(size.id)}
                         className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
                           selectedSize === size.id
-                            ? "bg-gold/15 border-gold/40 text-gold"
-                            : "border-gold/5 text-smoke/70 hover:border-gold/20 hover:text-bone"
+                            ? "bg-crimson/15 border-crimson/40 text-crimson"
+                            : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
                         }`}
                       >
                         <span className="font-medium">{size.label}</span>
@@ -142,10 +142,10 @@ export default function EstimatorPage() {
 
               {/* Complexity */}
               <AnimatedSection delay={0.1}>
-                <div className="glass rounded-xl p-6 border border-gold/5">
+                <div className="glass rounded-xl p-6 border border-crimson/5">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-                      <Layers size={16} className="text-gold" />
+                    <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center">
+                      <Layers size={16} className="text-crimson" />
                     </div>
                     <h3 className="text-sm font-display font-semibold text-bone tracking-wider uppercase">
                       Detail Level
@@ -160,8 +160,8 @@ export default function EstimatorPage() {
                         onClick={() => setSelectedComplexity(c.id)}
                         className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
                           selectedComplexity === c.id
-                            ? "bg-gold/15 border-gold/40 text-gold"
-                            : "border-gold/5 text-smoke/70 hover:border-gold/20 hover:text-bone"
+                            ? "bg-crimson/15 border-crimson/40 text-crimson"
+                            : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
                         }`}
                       >
                         {c.label}
@@ -173,10 +173,10 @@ export default function EstimatorPage() {
 
               {/* Color */}
               <AnimatedSection delay={0.2}>
-                <div className="glass rounded-xl p-6 border border-gold/5">
+                <div className="glass rounded-xl p-6 border border-crimson/5">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-                      <Palette size={16} className="text-gold" />
+                    <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center">
+                      <Palette size={16} className="text-crimson" />
                     </div>
                     <h3 className="text-sm font-display font-semibold text-bone tracking-wider uppercase">
                       Color
@@ -191,8 +191,8 @@ export default function EstimatorPage() {
                         onClick={() => setSelectedColor(c.id)}
                         className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
                           selectedColor === c.id
-                            ? "bg-gold/15 border-gold/40 text-gold"
-                            : "border-gold/5 text-smoke/70 hover:border-gold/20 hover:text-bone"
+                            ? "bg-crimson/15 border-crimson/40 text-crimson"
+                            : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
                         }`}
                       >
                         {c.label}
@@ -204,10 +204,10 @@ export default function EstimatorPage() {
 
               {/* Placement */}
               <AnimatedSection delay={0.3}>
-                <div className="glass rounded-xl p-6 border border-gold/5">
+                <div className="glass rounded-xl p-6 border border-crimson/5">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
-                      <MapPin size={16} className="text-gold" />
+                    <div className="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center">
+                      <MapPin size={16} className="text-crimson" />
                     </div>
                     <h3 className="text-sm font-display font-semibold text-bone tracking-wider uppercase">
                       Body Placement
@@ -222,8 +222,8 @@ export default function EstimatorPage() {
                         onClick={() => setSelectedPlacement(p.id)}
                         className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
                           selectedPlacement === p.id
-                            ? "bg-gold/15 border-gold/40 text-gold"
-                            : "border-gold/5 text-smoke/70 hover:border-gold/20 hover:text-bone"
+                            ? "bg-crimson/15 border-crimson/40 text-crimson"
+                            : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
                         }`}
                       >
                         <span className="font-medium">{p.label}</span>
@@ -245,7 +245,7 @@ export default function EstimatorPage() {
             <div className="lg:col-span-1">
               <div className="sticky top-28">
                 <AnimatedSection direction="right">
-                  <div className="glass rounded-2xl p-8 border border-gold/10">
+                  <div className="glass rounded-2xl p-8 border border-crimson/10">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-lg font-heading font-bold text-bone">
                         Your Estimate
@@ -256,7 +256,7 @@ export default function EstimatorPage() {
                           animate={{ opacity: 1 }}
                           whileHover={{ scale: 1.1 }}
                           onClick={handleReset}
-                          className="text-smoke/40 hover:text-gold transition-colors"
+                          className="text-smoke/40 hover:text-crimson transition-colors"
                           title="Reset"
                         >
                           <RotateCcw size={16} />
@@ -279,11 +279,11 @@ export default function EstimatorPage() {
                               animate={{ scale: 1 }}
                               transition={{ type: "spring" }}
                             >
-                              <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-gold">
+                              <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-crimson">
                                 ₹{estimate.low}
                               </span>
                               <span className="text-lg text-smoke/40 mx-2">—</span>
-                              <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-gold">
+                              <span className="text-4xl md:text-5xl font-heading font-bold text-gradient-crimson">
                                 ₹{estimate.high}
                               </span>
                             </motion.div>
@@ -292,13 +292,13 @@ export default function EstimatorPage() {
                             </p>
                           </div>
 
-                          <div className="line-gold my-5" />
+                          <div className="line-crimson my-5" />
 
                           {/* Details */}
                           <div className="space-y-4">
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-smoke/50 font-display flex items-center gap-2">
-                                <Clock size={14} className="text-gold" />
+                                <Clock size={14} className="text-crimson" />
                                 Time Estimate
                               </span>
                               <span className="text-bone font-display font-medium">
@@ -307,7 +307,7 @@ export default function EstimatorPage() {
                             </div>
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-smoke/50 font-display flex items-center gap-2">
-                                <MapPin size={14} className="text-gold" />
+                                <MapPin size={14} className="text-crimson" />
                                 Placement
                               </span>
                               <span className="text-bone font-display font-medium">
@@ -316,7 +316,7 @@ export default function EstimatorPage() {
                             </div>
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-smoke/50 font-display flex items-center gap-2">
-                                <AlertTriangle size={14} className="text-gold" />
+                                <AlertTriangle size={14} className="text-crimson" />
                                 Pain Level
                               </span>
                               <span className={`font-display font-medium ${painColor(estimate.painLevel)}`}>
@@ -325,14 +325,14 @@ export default function EstimatorPage() {
                             </div>
                           </div>
 
-                          <div className="line-gold my-5" />
+                          <div className="line-crimson my-5" />
 
                           {/* CTA */}
                           <Link href="/booking">
                             <motion.div
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
-                              className="w-full py-4 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-xl hover:bg-gold-light transition-all duration-300 glow-gold flex items-center justify-center gap-2"
+                              className="w-full py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-xl hover:bg-crimson-light transition-all duration-300 glow-crimson flex items-center justify-center gap-2"
                             >
                               Book Now
                               <ArrowRight size={16} />
@@ -352,7 +352,7 @@ export default function EstimatorPage() {
                           exit={{ opacity: 0 }}
                           className="text-center py-8"
                         >
-                          <IndianRupee size={40} className="text-gold/20 mx-auto mb-4" />
+                          <IndianRupee size={40} className="text-crimson/20 mx-auto mb-4" />
                           <p className="text-sm text-smoke/40 font-display">
                             Select all options to see your estimate
                           </p>
@@ -368,11 +368,11 @@ export default function EstimatorPage() {
                                 className="flex items-center gap-2 text-xs font-display justify-center"
                               >
                                 {item.done ? (
-                                  <CheckCircle size={12} className="text-gold" />
+                                  <CheckCircle size={12} className="text-crimson" />
                                 ) : (
                                   <div className="w-3 h-3 rounded-full border border-smoke/20" />
                                 )}
-                                <span className={item.done ? "text-gold" : "text-smoke/30"}>
+                                <span className={item.done ? "text-crimson" : "text-smoke/30"}>
                                   {item.label}
                                 </span>
                               </div>

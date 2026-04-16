@@ -18,7 +18,7 @@ export default function CTASection() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-40 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-24 overflow-hidden">
       {/* Parallax Background */}
       <motion.div style={{ y }} className="absolute inset-0">
         <Image
@@ -28,7 +28,7 @@ export default function CTASection() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-crimson-dark/30 via-transparent to-gold/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-crimson-dark/30 via-transparent to-crimson/10" />
       </motion.div>
 
       <div className="absolute inset-0 noise" />
@@ -40,25 +40,25 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-xs tracking-[0.4em] uppercase text-gold font-display font-medium">
+          <span className="text-xs tracking-[0.4em] uppercase text-crimson font-display font-medium">
             Ready for Your Next Piece?
           </span>
 
           <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-bone leading-tight">
             Your Story,{" "}
-            <span className="text-gradient-gold">Inked Forever</span>
+            <span className="text-gradient-crimson">Inked Forever</span>
           </h2>
 
           <p className="mt-6 text-base text-smoke/70 font-display max-w-xl mx-auto leading-relaxed">
             Book a free consultation with one of our artists and bring your vision to life. Walk-ins welcome, appointments preferred.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking">
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-10 py-4 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all duration-300 glow-gold tracking-wide uppercase"
+                className="inline-flex items-center px-10 py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300 glow-crimson tracking-wide uppercase"
               >
                 Book Now
               </motion.span>

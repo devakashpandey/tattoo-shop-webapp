@@ -1,110 +1,133 @@
 "use client";
 
 // ============================================================
-// ArtistsSection — Artist showcase cards with hover reveal
+// ArtistsSection — Single artist showcase with full biography
 // ============================================================
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { artists } from "@/lib/data";
 import SectionHeading from "@/components/SectionHeading";
-import { Instagram } from "lucide-react";
+import { Award, Clock } from "lucide-react";
 
 export default function ArtistsSection() {
+  const artist = artists[0]; // Currently only one artist
+
+  if (!artist) return null;
+
   return (
-    <section className="relative py-24 md:py-32 bg-charcoal-dark/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-20 bg-charcoal-dark/50 overflow-hidden" id="artist">
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-crimson/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         <SectionHeading
-          subtitle="The Creators"
-          title="Meet Our Artists"
-          description="Every piece is a collaboration between your vision and our artists' mastery."
+          subtitle="The Artist"
+          title="Meet the Master"
+          description="Every masterpiece starts with a vision. Meet the hands that bring those visions to life."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {artists.map((artist, index) => (
+        <div className="mt-12 lg:mt-16 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          {/* Artist Image */}
+          <div className="w-full lg:w-1/2">
             <motion.div
-              key={artist.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative"
+              transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <Link href={`/artists#${artist.id}`}>
-                {/* Image Container */}
-                <div className="relative h-[450px] rounded-xl overflow-hidden mb-6">
-                  <Image
-                    src={artist.image}
-                    alt={artist.name}
-                    fill
-                    className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-75"
-                  />
+              {/* Main Image Container */}
+              <div className="relative h-[400px] md:h-[650px] rounded-2xl overflow-hidden group">
+                <Image
+                  src={artist.image}
+                  alt={artist.name}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                
+                {/* Decorative Elements */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent opacity-80" />
+              </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Hover Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="flex flex-wrap gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                      {artist.specialties.map((s) => (
-                        <span
-                          key={s}
-                          className="text-[10px] tracking-wider uppercase px-3 py-1 rounded-full border border-gold/30 text-gold font-display"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="text-xs text-smoke/60 font-display opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 line-clamp-2">
-                      {artist.bio}
-                    </p>
-                  </div>
-
-                  {/* Instagram badge */}
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <Instagram size={16} className="text-gold" />
-                  </motion.div>
-                </div>
-
-                {/* Artist Info */}
-                <div className="text-center">
-                  <h3 className="text-xl font-heading font-bold text-bone group-hover:text-gold transition-colors duration-300">
-                    {artist.name}
-                  </h3>
-                  <p className="text-sm text-smoke/60 font-display mt-1">
-                    {artist.role}
-                  </p>
-                  <p className="text-xs text-gold/60 font-display mt-1">
-                    {artist.experience} experience
-                  </p>
-                </div>
-              </Link>
             </motion.div>
-          ))}
-        </div>
+          </div>
 
-        {/* View All CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Link href="/artists">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-3 border border-gold/30 text-gold font-display font-semibold text-sm rounded-full hover:bg-gold/10 transition-all duration-300 tracking-wide uppercase"
+          {/* Artist Info */}
+          <div className="w-full lg:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              View All Artists
-            </motion.span>
-          </Link>
-        </motion.div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-[1px] w-12 bg-crimson/50" />
+                <span className="text-xs tracking-[0.4em] uppercase text-crimson font-display font-bold">
+                  {artist.role}
+                </span>
+              </div>
+              
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-bone mb-8">
+                {artist.name}
+              </h2>
+
+              <div className="flex flex-wrap gap-8 mb-10">
+                <div className="flex items-center gap-4 bg-white/5 px-5 py-3 rounded-2xl border border-crimson/10">
+                  <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center shrink-0">
+                    <Clock size={18} className="text-crimson" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-smoke/50 font-display">Experience</p>
+                    <p className="text-sm text-bone font-display font-bold">{artist.experience}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 bg-white/5 px-5 py-3 rounded-2xl border border-crimson/10">
+                  <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center shrink-0">
+                    <Award size={18} className="text-crimson" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-smoke/50 font-display">Status</p>
+                    <p className="text-sm text-bone font-display font-bold">Certified Professional</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-lg text-smoke/80 leading-relaxed font-display mb-10 max-w-xl">
+                {artist.bio}
+              </p>
+
+              {/* Specialties Section */}
+              <div className="mb-12">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-smoke/40 font-display font-bold mb-5 flex items-center gap-3">
+                   Expertise 
+                  <span className="h-[1px] flex-1 bg-crimson/10" />
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {artist.specialties.map((s) => (
+                    <span
+                      key={s}
+                      className="text-xs tracking-wider uppercase px-5 py-3 rounded-xl border border-crimson/15 text-crimson font-display font-semibold bg-crimson/5 hover:bg-crimson/10 transition-colors cursor-default"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-12 flex items-center gap-6">
+                <motion.a
+                  href="/booking"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4.5 bg-crimson text-charcoal-dark font-display font-bold text-sm tracking-[0.2em] uppercase rounded-full shadow-2xl shadow-crimson/20 hover:bg-crimson-light transition-all text-center min-w-[220px]"
+                >
+                  Book Session
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

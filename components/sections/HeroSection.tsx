@@ -4,13 +4,28 @@
 // HeroSection — Fullscreen immersive hero with parallax
 // ============================================================
 
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const backgrounds = [
+    { type: "image", src: "/tattoos/hero-section.jpeg" },
+    { type: "image", src: "/tattoos/hero-banner.jpeg" },
+    { type: "image", src: "/tattoos/hero-banner2.jpeg" },
+    { type: "video", src: "/tattoos/vid.mp4" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % backgrounds.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [backgrounds.length]);
+
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,19 +42,42 @@ export default function HeroSection() {
       id="hero"
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Parallax */}
+      {/* Background Slideshow */}
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero.png"
-          alt="Ink & Soul Tattoo Studio"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentIndex}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {backgrounds[currentIndex].type === "image" ? (
+              <Image
+                src={backgrounds[currentIndex].src}
+                alt="Tattoo House Studio Background"
+                fill
+                className="object-cover"
+                priority
+                quality={90}
+              />
+            ) : (
+              <video
+                src={backgrounds[currentIndex].src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
         {/* Dark gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-10" />
       </motion.div>
 
       {/* Noise overlay */}
@@ -55,7 +93,7 @@ export default function HeroSection() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mx-auto w-20 h-[1px] bg-gold mb-8"
+          className="mx-auto w-20 h-[1px] bg-crimson mb-8"
         />
 
         {/* Subtitle */}
@@ -63,7 +101,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-xs md:text-sm tracking-[0.4em] uppercase text-gold font-display font-medium mb-6"
+          className="text-xs md:text-sm tracking-[0.4em] uppercase text-crimson font-display font-medium mb-6"
         >
           Premium Tattoo Artistry
         </motion.p>
@@ -77,7 +115,7 @@ export default function HeroSection() {
         >
           <span className="text-bone">Where Art</span>
           <br />
-          <span className="text-gradient-gold">Meets Skin</span>
+          <span className="text-gradient-crimson">Meets Skin</span>
         </motion.h1>
 
         {/* Description */}
@@ -87,7 +125,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-base md:text-lg text-smoke/80 font-display max-w-xl mx-auto mb-10 leading-relaxed"
         >
-          World-class tattoo artists crafting bespoke pieces in a premium studio
+          World-class tattoo artist crafting bespoke pieces in a premium studio
           environment. Your vision, our expertise.
         </motion.p>
 
@@ -102,7 +140,7 @@ export default function HeroSection() {
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all duration-300 glow-gold tracking-wide uppercase"
+              className="inline-flex items-center px-8 py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300 glow-crimson tracking-wide uppercase"
             >
               Book Appointment
             </motion.span>
@@ -111,7 +149,7 @@ export default function HeroSection() {
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 border border-gold/30 text-gold font-display font-semibold text-sm rounded-full hover:bg-gold/10 transition-all duration-300 tracking-wide uppercase"
+              className="inline-flex items-center px-8 py-4 border border-crimson/30 text-crimson font-display font-semibold text-sm rounded-full hover:bg-crimson/10 transition-all duration-300 tracking-wide uppercase"
             >
               View Our Work
             </motion.span>
@@ -134,7 +172,7 @@ export default function HeroSection() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ArrowDown size={16} className="text-gold/60" />
+          <ArrowDown size={16} className="text-crimson/60" />
         </motion.div>
       </motion.div>
     </section>

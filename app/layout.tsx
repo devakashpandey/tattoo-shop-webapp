@@ -1,19 +1,40 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./fonts.css";
+import { Poppins, Manrope, Nunito, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
-const inter = Inter({
-  variable: "--font-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+  display: "swap",
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ink & Soul — Premium Tattoo Studio",
+  title: "Tattoo House — Premium Tattoo Studio",
   description:
     "World-class tattoo artistry in a luxury studio environment. Custom designs, expert artists, and an unmatched experience. Book your appointment today.",
   keywords: [
@@ -25,7 +46,7 @@ export const metadata: Metadata = {
     "luxury tattoo",
   ],
   openGraph: {
-    title: "Ink & Soul — Premium Tattoo Studio",
+    title: "Tattoo House — Premium Tattoo Studio",
     description:
       "Where art meets skin. World-class tattoo artists crafting bespoke pieces.",
     type: "website",
@@ -38,12 +59,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${poppins.variable} ${manrope.variable} ${nunito.variable} ${openSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <ThemeSwitcher />
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -49,30 +49,30 @@ export default function AboutPage() {
   const y = useTransform(scrollYProgress, [0, 1], [-60, 60]);
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Page Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-10 md:py-14 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson/5 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center relative z-10">
           <SectionHeading
             subtitle="Our Story"
-            title="About Ink & Soul"
+            title="About Tattoo House"
             description="More than a tattoo studio — we're a collective of artists dedicated to transforming your ideas into permanent works of art."
           />
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pb-16 md:pb-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             {/* Image with Parallax */}
             <AnimatedSection className="w-full lg:w-1/2" direction="left">
               <div ref={parallaxRef} className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden">
                 <motion.div style={{ y }} className="absolute inset-[-60px]">
                   <Image
-                    src="/images/studio.png"
-                    alt="Ink & Soul Studio Interior"
+                    src="/tattoos/hero-section.jpeg"
+                    alt="Tattoo House Studio"
                     fill
                     className="object-cover"
                   />
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
                 {/* Floating badge */}
                 <div className="absolute bottom-6 left-6 glass px-5 py-3 rounded-xl">
-                  <p className="text-xs text-gold font-display font-semibold tracking-wider uppercase">
+                  <p className="text-xs text-crimson font-display font-semibold tracking-wider uppercase">
                     Est. 2010
                   </p>
                   <p className="text-sm text-bone font-display mt-1">
@@ -93,16 +93,16 @@ export default function AboutPage() {
 
             {/* Story Text */}
             <AnimatedSection className="w-full lg:w-1/2" direction="right">
-              <span className="text-xs tracking-[0.3em] uppercase text-gold font-display font-semibold">
+              <span className="text-xs tracking-[0.3em] uppercase text-crimson font-display font-semibold">
                 The Beginning
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl font-heading font-bold text-bone leading-tight">
                 Born from a Passion for{" "}
-                <span className="text-gradient-gold">Permanent Art</span>
+                <span className="text-gradient-crimson">Permanent Art</span>
               </h2>
               <div className="mt-6 space-y-4 text-sm text-smoke/70 font-display leading-relaxed">
                 <p>
-                  Ink & Soul was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of LA&apos;s Art District has grown into a globally recognized destination for premium tattoo artistry.
+                  Tattoo House was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of LA&apos;s Art District has grown into a globally recognized destination for premium tattoo artistry.
                 </p>
                 <p>
                   Our studio is more than a place to get tattooed — it&apos;s an immersive experience. From the moment you walk through our doors, you&apos;re enveloped in an atmosphere that celebrates creativity, craftsmanship, and individual expression.
@@ -128,7 +128,7 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                    className="block text-3xl md:text-4xl font-heading font-bold text-gradient-gold"
+                    className="block text-3xl md:text-4xl font-heading font-bold text-gradient-crimson"
                   >
                     {stat.number}
                   </motion.span>
@@ -142,35 +142,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Philosophy / Values */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            subtitle="What Drives Us"
-            title="Our Philosophy"
-            description="We believe every tattoo should be a masterpiece. Here's what guides our work."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((value, index) => (
-              <AnimatedSection key={value.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4, borderColor: "rgba(201, 168, 76, 0.25)" }}
-                  className="glass rounded-xl p-8 border border-gold/5 transition-all duration-500 h-full"
-                >
-                  <span className="text-2xl mb-4 block text-gold">{value.icon}</span>
-                  <h3 className="text-lg font-heading font-bold text-bone mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-smoke/60 leading-relaxed font-display">
-                    {value.description}
-                  </p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

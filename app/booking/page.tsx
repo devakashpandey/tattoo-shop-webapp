@@ -32,7 +32,7 @@ export default function BookingPage() {
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -44,6 +44,28 @@ export default function BookingPage() {
   const today = 10; // mock today
 
   const handleSubmit = () => {
+    const artistName = artists.find((a) => a.id === selectedArtist)?.name || "Not selected";
+    const styleName = tattooStyles.find((s) => s.id === selectedStyle)?.name || "Not selected";
+    const dateStr = selectedDate ? `${months[currentMonth]} ${selectedDate}, ${currentYear}` : "Not selected";
+    const timeStr = selectedTime || "Not selected";
+
+    const message = `*NEW BOOKING REQUEST*
+--------------------------
+Name: ${name || "Not provided"}
+Phone: ${phone || "Not provided"}
+--------------------------
+Artist: ${artistName}
+Style: ${styleName}
+Date: ${dateStr}
+Time: ${timeStr}
+--------------------------
+Notes: ${notes || "None"}
+--------------------------
+Sent from Tattoo House`;
+
+    const phoneNumber = "919304328528";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
     setIsSubmitted(true);
   };
 
@@ -66,15 +88,15 @@ export default function BookingPage() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
-            className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6"
+            className="w-20 h-20 rounded-full bg-crimson/20 flex items-center justify-center mx-auto mb-6"
           >
-            <CheckCircle size={40} className="text-gold" />
+            <CheckCircle size={40} className="text-crimson" />
           </motion.div>
           <h2 className="text-3xl font-heading font-bold text-bone mb-4">
             Booking Confirmed!
           </h2>
           <p className="text-sm text-smoke/70 font-display leading-relaxed mb-8">
-            Thank you, {name}! Your appointment request has been submitted. We&apos;ll contact you at {email} to confirm your session.
+            Thank you, {name}! Your appointment request has been submitted. We&apos;ll contact you at {phone} to confirm your session.
           </p>
           <button
             onClick={() => {
@@ -85,10 +107,10 @@ export default function BookingPage() {
               setSelectedDate(null);
               setSelectedTime("");
               setName("");
-              setEmail("");
+              setPhone("");
               setNotes("");
             }}
-            className="px-8 py-3 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all duration-300"
+            className="px-8 py-3 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300"
           >
             Book Another
           </button>
@@ -98,11 +120,11 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Page Hero */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gold/5 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <section className="relative py-10 md:py-14 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-crimson/5 via-transparent to-transparent pointer-events-none" />
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <SectionHeading
             subtitle="Schedule Your Session"
             title="Book an Appointment"
@@ -111,7 +133,7 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Step Indicator */}
           <div className="flex items-center justify-center mb-12">
@@ -120,11 +142,10 @@ export default function BookingPage() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   onClick={() => s.num < step && setStep(s.num)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition-all duration-300 ${
-                    step >= s.num
-                      ? "bg-gold/20 text-gold"
-                      : "text-smoke/40"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition-all duration-300 ${step >= s.num
+                    ? "bg-crimson/20 text-crimson"
+                    : "text-smoke/40"
+                    }`}
                 >
                   <s.icon size={16} />
                   <span className="text-xs font-display font-semibold hidden sm:inline">
@@ -133,9 +154,8 @@ export default function BookingPage() {
                 </motion.div>
                 {i < steps.length - 1 && (
                   <div
-                    className={`w-8 md:w-16 h-[1px] mx-1 transition-colors ${
-                      step > s.num ? "bg-gold/40" : "bg-white/10"
-                    }`}
+                    className={`w-8 md:w-16 h-[1px] mx-1 transition-colors ${step > s.num ? "bg-crimson/40" : "bg-white/10"
+                      }`}
                   />
                 )}
               </div>
@@ -163,11 +183,10 @@ export default function BookingPage() {
                       whileHover={{ y: -4 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setSelectedArtist(artist.id)}
-                      className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 border-2 ${
-                        selectedArtist === artist.id
-                          ? "border-gold glow-gold"
-                          : "border-transparent hover:border-gold/20"
-                      }`}
+                      className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 border-2 ${selectedArtist === artist.id
+                        ? "border-crimson glow-crimson"
+                        : "border-transparent hover:border-crimson/20"
+                        }`}
                     >
                       <div className="relative h-60">
                         <Image
@@ -190,7 +209,7 @@ export default function BookingPage() {
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="absolute top-3 right-3 w-6 h-6 bg-gold rounded-full flex items-center justify-center"
+                          className="absolute top-3 right-3 w-6 h-6 bg-crimson rounded-full flex items-center justify-center"
                         >
                           <CheckCircle size={14} className="text-charcoal-dark" />
                         </motion.div>
@@ -220,11 +239,10 @@ export default function BookingPage() {
                       whileHover={{ y: -4 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setSelectedStyle(style.id)}
-                      className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 border-2 ${
-                        selectedStyle === style.id
-                          ? "border-gold glow-gold"
-                          : "border-transparent hover:border-gold/20"
-                      }`}
+                      className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 border-2 ${selectedStyle === style.id
+                        ? "border-crimson glow-crimson"
+                        : "border-transparent hover:border-crimson/20"
+                        }`}
                     >
                       <div className="relative h-32">
                         <Image
@@ -244,7 +262,7 @@ export default function BookingPage() {
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="absolute top-2 right-2 w-5 h-5 bg-gold rounded-full flex items-center justify-center"
+                          className="absolute top-2 right-2 w-5 h-5 bg-crimson rounded-full flex items-center justify-center"
                         >
                           <CheckCircle size={12} className="text-charcoal-dark" />
                         </motion.div>
@@ -272,13 +290,13 @@ export default function BookingPage() {
                   {/* Calendar */}
                   <div className="glass rounded-xl p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <button className="text-smoke hover:text-gold transition-colors">
+                      <button className="text-smoke hover:text-crimson transition-colors">
                         <ChevronLeft size={20} />
                       </button>
                       <span className="text-sm font-display font-semibold text-bone">
                         {months[currentMonth]} {currentYear}
                       </span>
-                      <button className="text-smoke hover:text-gold transition-colors">
+                      <button className="text-smoke hover:text-crimson transition-colors">
                         <ChevronRight size={20} />
                       </button>
                     </div>
@@ -311,15 +329,14 @@ export default function BookingPage() {
                             whileTap={!isPast ? { scale: 0.9 } : {}}
                             onClick={() => !isPast && setSelectedDate(day)}
                             disabled={isPast}
-                            className={`aspect-square rounded-lg text-xs font-display font-medium flex items-center justify-center transition-all duration-200 ${
-                              isPast
-                                ? "text-smoke/20 cursor-not-allowed"
-                                : isSelected
-                                ? "bg-gold text-charcoal-dark font-bold"
+                            className={`aspect-square rounded-lg text-xs font-display font-medium flex items-center justify-center transition-all duration-200 ${isPast
+                              ? "text-smoke/20 cursor-not-allowed"
+                              : isSelected
+                                ? "bg-crimson text-charcoal-dark font-bold"
                                 : isToday
-                                ? "border border-gold/50 text-gold"
-                                : "text-smoke/70 hover:bg-gold/10 hover:text-bone"
-                            }`}
+                                  ? "border border-crimson/50 text-crimson"
+                                  : "text-smoke/70 hover:bg-crimson/10 hover:text-bone"
+                              }`}
                           >
                             {day}
                           </motion.button>
@@ -331,7 +348,7 @@ export default function BookingPage() {
                   {/* Time Slots */}
                   <div>
                     <h4 className="text-sm font-display font-semibold text-smoke/50 mb-4 flex items-center gap-2">
-                      <Clock size={14} className="text-gold" />
+                      <Clock size={14} className="text-crimson" />
                       Available Times
                     </h4>
                     <div className="grid grid-cols-2 gap-2">
@@ -342,13 +359,12 @@ export default function BookingPage() {
                           whileTap={slot.available ? { scale: 0.97 } : {}}
                           onClick={() => slot.available && setSelectedTime(slot.time)}
                           disabled={!slot.available}
-                          className={`py-3 px-4 rounded-lg text-sm font-display font-medium transition-all duration-200 ${
-                            !slot.available
-                              ? "bg-white/5 text-smoke/20 cursor-not-allowed line-through"
-                              : selectedTime === slot.time
-                              ? "bg-gold text-charcoal-dark font-bold"
-                              : "border border-gold/10 text-smoke/70 hover:border-gold/30 hover:text-bone"
-                          }`}
+                          className={`py-3 px-4 rounded-lg text-sm font-display font-medium transition-all duration-200 ${!slot.available
+                            ? "bg-white/5 text-smoke/20 cursor-not-allowed line-through"
+                            : selectedTime === slot.time
+                              ? "bg-crimson text-charcoal-dark font-bold"
+                              : "border border-crimson/10 text-smoke/70 hover:border-crimson/30 hover:text-bone"
+                            }`}
                         >
                           {slot.time}
                         </motion.button>
@@ -382,20 +398,20 @@ export default function BookingPage() {
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="John Doe"
-                        className="w-full bg-white/5 border border-gold/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-gold/40 transition-colors"
+                        placeholder="Satish Keshri"
+                        className="w-full bg-white/5 border border-crimson/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-crimson/40 transition-colors"
                       />
                     </div>
                     <div>
                       <label className="text-xs font-display font-semibold text-smoke/50 tracking-wider uppercase mb-2 block">
-                        Email
+                        Phone Number
                       </label>
                       <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="john@example.com"
-                        className="w-full bg-white/5 border border-gold/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-gold/40 transition-colors"
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="+91 93043 28528"
+                        className="w-full bg-white/5 border border-crimson/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-crimson/40 transition-colors"
                       />
                     </div>
                     <div>
@@ -407,13 +423,13 @@ export default function BookingPage() {
                         onChange={(e) => setNotes(e.target.value)}
                         placeholder="Describe your tattoo idea, placement, size..."
                         rows={4}
-                        className="w-full bg-white/5 border border-gold/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-gold/40 transition-colors resize-none"
+                        className="w-full bg-white/5 border border-crimson/10 rounded-lg px-4 py-3 text-sm text-bone font-display placeholder:text-smoke/30 focus:outline-none focus:border-crimson/40 transition-colors resize-none"
                       />
                     </div>
                   </div>
 
                   {/* Summary */}
-                  <div className="mt-6 pt-6 border-t border-gold/10">
+                  <div className="mt-6 pt-6 border-t border-crimson/10">
                     <h4 className="text-xs tracking-wider uppercase text-smoke/40 font-display mb-3">
                       Booking Summary
                     </h4>
@@ -425,6 +441,10 @@ export default function BookingPage() {
                       <div className="flex justify-between">
                         <span className="text-smoke/50">Style</span>
                         <span className="text-bone">{tattooStyles.find((s) => s.id === selectedStyle)?.name || "—"}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-smoke/50">Phone</span>
+                        <span className="text-bone">{phone || "—"}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-smoke/50">Date</span>
@@ -449,9 +469,8 @@ export default function BookingPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setStep((prev) => Math.max(1, prev - 1))}
-              className={`px-6 py-3 border border-gold/20 text-smoke/70 font-display font-medium text-sm rounded-full hover:text-bone transition-all ${
-                step === 1 ? "invisible" : ""
-              }`}
+              className={`px-6 py-3 border border-crimson/20 text-smoke/70 font-display font-medium text-sm rounded-full hover:text-bone transition-all ${step === 1 ? "invisible" : ""
+                }`}
             >
               Back
             </motion.button>
@@ -461,7 +480,7 @@ export default function BookingPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep((prev) => Math.min(4, prev + 1))}
-                className="px-8 py-3 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all duration-300"
+                className="px-8 py-3 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300"
               >
                 Continue
               </motion.button>
@@ -470,7 +489,7 @@ export default function BookingPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSubmit}
-                className="px-8 py-3 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all duration-300 glow-gold"
+                className="px-8 py-3 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300 glow-crimson"
               >
                 Confirm Booking
               </motion.button>

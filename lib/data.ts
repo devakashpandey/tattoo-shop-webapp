@@ -60,56 +60,30 @@ export interface TimeSlot {
 // --- Navigation Links ---
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/artists", label: "Artists" },
   { href: "/gallery", label: "Gallery" },
   { href: "/services", label: "Services" },
+  { href: "/estimator", label: "Estimator" },
+  // { href: "/transformations", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/booking", label: "Book Now" },
 ];
 
-// --- Extra Feature Links (for "More" dropdown) ---
-export const featureLinks = [
-  { href: "/estimator", label: "Price Estimator", icon: "", description: "Get an instant price estimate" },
-  { href: "/faq", label: "FAQ", icon: "", description: "Common questions answered" },
-  { href: "/transformations", label: "Before & After", icon: "", description: "See our amazing transformations" },
-];
+export const featureLinks: any[] = [];
+
 
 // --- Artists ---
 export const artists: Artist[] = [
   {
     id: "marcus-black",
-    name: "Marcus Black",
+    name: "Satish K. Keshri",
     role: "Lead Artist & Founder",
-    image: "/images/marcus.png",
+    image: "/images/artist.png",
     bio: "With over 15 years of experience, Marcus is renowned for his photorealistic portraits and intricate black & grey work. His attention to detail and artistic vision have earned him recognition at international tattoo conventions.",
     specialties: ["Black & Grey Realism", "Portraits", "Dark Art"],
     experience: "15+ years",
     instagram: "@marcus.ink",
     portfolio: ["/images/tattoo-realism.png", "/images/tattoo-blackwork.png"],
-  },
-  {
-    id: "luna-vex",
-    name: "Luna Vex",
-    role: "Senior Artist",
-    image: "/images/luna.png",
-    bio: "Luna brings a fresh, contemporary approach to tattooing. Her signature watercolor and fine-line work has redefined modern tattoo aesthetics. She specializes in creating delicate, meaningful pieces with incredible precision.",
-    specialties: ["Fine Line", "Watercolor", "Minimalist"],
-    experience: "10+ years",
-    instagram: "@luna.vex.ink",
-    portfolio: ["/images/tattoo-minimal.png", "/images/tattoo-watercolor.png"],
-  },
-  {
-    id: "kai-storm",
-    name: "Kai Storm",
-    role: "Traditional Specialist",
-    image: "/images/kai.png",
-
-    bio: "A master of bold lines and vivid colors, Kai specializes in traditional and neo-traditional tattoos. His work pays homage to the classic American tattoo tradition while incorporating modern elements and techniques.",
-    specialties: ["Traditional", "Neo-Traditional", "Japanese"],
-    experience: "12+ years",
-    instagram: "@kai.storm.tattoo",
-    portfolio: ["/images/tattoo-traditional.png", "/images/tattoo-japanese.png"],
   },
 ];
 
@@ -163,61 +137,333 @@ export const tattooStyles: TattooStyle[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "James Rodriguez",
-    text: "Marcus created an absolutely stunning portrait of my grandmother. The detail is unreal — people think it's a photograph. This studio is world class.",
+    name: "Rahul Kumar",
+    text: "Best tattoo studio in Patna. Marcus is very professional and the shop is very clean. Highly recommended for everyone!",
     rating: 5,
     tattooType: "Portrait Realism",
-    artist: "Marcus Black",
+    artist: "Satish K. Keshri",
     image: "/images/client-1.png",
   },
   {
     id: "2",
-    name: "Sophie Chen",
-    text: "Luna designed the most beautiful fine-line piece for me. Her artistic vision turned my rough idea into something I'll treasure forever. The studio vibe is immaculate.",
+    name: "Amit Singh",
+    text: "Bhai maza aa gaya! Tattoo bilkul perfect bana hai aur hygiene ka bhi pura dhyan rakha. Hairan hoon itna accha kaam dekh kar.",
     rating: 5,
-    tattooType: "Fine Line",
-    artist: "Luna Vex",
+    tattooType: "Traditional",
+    artist: "Satish K. Keshri",
     image: "/images/client-2.png",
   },
   {
     id: "3",
-    name: "Derek Phillips",
-    text: "Got a full sleeve from Kai and it's absolutely incredible. The colors haven't faded a bit. True craftsmanship at every level.",
+    name: "Priyanka Kumari",
+    text: "I got my first tattoo here and the experience was great. Very safe and the artist is very patient. Love my new ink!",
     rating: 5,
-    tattooType: "Traditional",
-    artist: "Kai Storm",
+    tattooType: "Fine Line",
+    artist: "Satish K. Keshri",
     image: "/images/client-3.png",
   },
   {
     id: "4",
-    name: "Maria Santos",
-    text: "The whole experience was luxury from start to finish. Clean, professional, and the end result exceeded every expectation. Highly recommend.",
+    name: "Manish Pandey",
+    text: "Ara me isse accha studio nahi milega. Artist professional hai aur price bhi sahi hai. Best finishing!",
     rating: 5,
-    tattooType: "Watercolor",
-    artist: "Luna Vex",
+    tattooType: "Blackwork",
+    artist: "Satish K. Keshri",
     image: "/images/client-4.png",
   },
   {
     id: "5",
-    name: "Alex Ivanov",
-    text: "I've been tattooed all over the world and this studio is hands down one of the best I've ever visited. The attention to detail is unmatched.",
+    name: "Neha Sharma",
+    text: "Very happy with my tattoo. Professional service and great attention to detail. I will definitely come back for more.",
     rating: 5,
-    tattooType: "Japanese",
-    artist: "Kai Storm",
+    tattooType: "Watercolor",
+    artist: "Satish K. Keshri",
     image: "/images/client-5.png",
   },
 ];
 
 // --- Gallery Items ---
 export const galleryItems: GalleryItem[] = [
-  { id: "g1", src: "/images/tattoo-realism.png", alt: "Realistic lion tattoo", category: "realism", artist: "Marcus Black", aspectRatio: "portrait" },
-  { id: "g2", src: "/images/tattoo-minimal.png", alt: "Fine line wolf tattoo", category: "minimal", artist: "Luna Vex", aspectRatio: "portrait" },
-  { id: "g3", src: "/images/tattoo-japanese.png", alt: "Japanese koi sleeve", category: "japanese", artist: "Kai Storm", aspectRatio: "portrait" },
-  { id: "g4", src: "/images/tattoo-traditional.png", alt: "Traditional eagle tattoo", category: "traditional", artist: "Kai Storm", aspectRatio: "portrait" },
-  { id: "g5", src: "/images/tattoo-watercolor.png", alt: "Watercolor hummingbird", category: "watercolor", artist: "Luna Vex", aspectRatio: "portrait" },
-  { id: "g6", src: "/images/tattoo-blackwork.png", alt: "Blackwork mandala", category: "blackwork", artist: "Marcus Black", aspectRatio: "portrait" },
-  { id: "g7", src: "/images/hero.png", alt: "Artist at work", category: "realism", artist: "Marcus Black", aspectRatio: "landscape" },
-  { id: "g8", src: "/images/studio.png", alt: "Studio interior", category: "blackwork", artist: "Luna Vex", aspectRatio: "landscape" },
+  {
+    "id": "g1",
+    "src": "/tattoos/1.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g2",
+    "src": "/tattoos/2.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g3",
+    "src": "/tattoos/3.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g4",
+    "src": "/tattoos/4.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g5",
+    "src": "/tattoos/5.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g6",
+    "src": "/tattoos/6.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g7",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.18 PM (1).jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g8",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.22 PM (1).jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g9",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.24 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g10",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.25 PM (1).jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g11",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.25 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g12",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.27 PM (1).jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g13",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.27 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g14",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.28 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g15",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.29 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g16",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.30 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g17",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.32 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g18",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.35 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g19",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.36 PM (1).jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g20",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.36 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g21",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.55.54 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g22",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.01 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g23",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.03 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g24",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.05 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g25",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.23 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g26",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.56 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g27",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.57 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g28",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.58 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g29",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.00 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g30",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.01 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g31",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.02 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g32",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.08 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g33",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.12 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g34",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.21 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "g35",
+    "src": "/tattoos/WhatsApp Image 2026-04-16 at 5.01.23 PM.jpeg",
+    "alt": "Tattoo Design",
+    "category": "all",
+    "artist": "Satish K. Keshri",
+    "aspectRatio": "portrait"
+  }
 ];
 
 // --- Services ---
@@ -320,12 +566,7 @@ export const faqCategories = [
 ];
 
 export const faqItems: FAQItem[] = [
-  {
-    id: "faq-1",
-    question: "Does getting a tattoo hurt?",
-    answer: "Pain levels vary depending on the placement, your pain tolerance, and the style of tattoo. Areas with more bone or nerve endings (ribs, spine, elbows) tend to be more sensitive. Most clients describe the sensation as a scratching or vibrating feeling. Our artists are experienced in making the process as comfortable as possible, and we offer numbing cream for sensitive areas.",
-    category: "general",
-  },
+
   {
     id: "faq-2",
     question: "How long does a tattoo take to heal?",
@@ -333,22 +574,10 @@ export const faqItems: FAQItem[] = [
     category: "aftercare",
   },
   {
-    id: "faq-3",
-    question: "Can I swim or go to the gym after getting a tattoo?",
-    answer: "We recommend avoiding swimming pools, hot tubs, saunas, and ocean water for at least 2-3 weeks after your tattoo. Light exercise is fine after 48 hours, but avoid excessive sweating on the tattooed area. Bacteria in water bodies can cause infections on fresh tattoos.",
-    category: "aftercare",
-  },
-  {
     id: "faq-4",
     question: "How much does a tattoo cost?",
-    answer: "Pricing depends on size, complexity, style, placement, and the artist. Our rates range from ₹150-₹500/hour depending on the artist. Small pieces may have a minimum charge of ₹100-₹150. We provide free consultations where we'll give you an accurate quote based on your specific design. Use our Price Estimator tool for a quick ballpark estimate!",
+    answer: "Pricing depends on size, complexity, style, placement, and the artist. Our rates range from ₹300-₹600/hour depending on the artist. Small pieces may have a minimum charge of ₹300-₹450. We provide free consultations where we'll give you an accurate quote based on your specific design. Use our Price Estimator tool for a quick ballpark estimate!",
     category: "pricing",
-  },
-  {
-    id: "faq-5",
-    question: "What should I do before my appointment?",
-    answer: "Get a good night's sleep, eat a full meal before your session, stay well hydrated, avoid alcohol for 24 hours prior, wear comfortable clothing that provides easy access to the tattoo area, and moisturize the area for a few days beforehand. Bring snacks and entertainment (headphones, book) for longer sessions.",
-    category: "preparation",
   },
   {
     id: "faq-6",
@@ -356,42 +585,16 @@ export const faqItems: FAQItem[] = [
     answer: "Absolutely! Cover-up tattoos are one of our specialties. During your consultation, our artist will assess the existing tattoo and discuss design options that will effectively blend or conceal the old tattoo. Not all tattoos need a full cover-up — some can be reworked or incorporated into a new design. Check out our Before & After gallery for examples!",
     category: "general",
   },
-  {
-    id: "faq-7",
-    question: "How do I choose the right artist?",
-    answer: "Each of our artists has a unique style and specialty. Browse their portfolios on our Artists page to find someone whose work resonates with your vision. During your free consultation, you can discuss your design with them and see if it's a good fit. We're always happy to recommend the best artist for your specific project.",
-    category: "general",
-  },
-  {
-    id: "faq-8",
-    question: "Is it safe to get a tattoo?",
-    answer: "Yes! We maintain the highest standards of hygiene and safety. We use hospital-grade sterilization equipment, single-use needles and gloves, FDA-approved inks, and follow all health department regulations. Our studio is regularly inspected and all artists are blood-borne pathogen certified.",
-    category: "health",
-  },
+
+
+
   {
     id: "faq-9",
     question: "Can I bring my own design?",
     answer: "Of course! We love working with client-provided designs and references. Bring any sketches, photos, or inspiration images to your consultation. Our artists will work with you to refine the design for the best results as a tattoo — some details may need to be adjusted for skin as a medium.",
     category: "preparation",
   },
-  {
-    id: "faq-10",
-    question: "Do you offer touch-ups?",
-    answer: "We offer one free touch-up session within 3 months of your original tattoo for any minor touch-ups needed after healing. After that, touch-ups are charged at a reduced rate. For tattoos done elsewhere, we're happy to refresh and restore them — pricing will be discussed during consultation.",
-    category: "pricing",
-  },
-  {
-    id: "faq-11",
-    question: "What if I'm allergic to tattoo ink?",
-    answer: "True allergic reactions to professional tattoo ink are very rare but can occur. If you have sensitive skin or known allergies, let us know during your consultation. We can do a small patch test beforehand. We use only premium, hypoallergenic inks from trusted manufacturers.",
-    category: "health",
-  },
-  {
-    id: "faq-12",
-    question: "Can I get a tattoo if I'm pregnant or breastfeeding?",
-    answer: "We recommend waiting until after pregnancy and breastfeeding. While the risk is minimal with proper hygiene, it's best to be cautious. Your body is going through hormonal changes that can affect healing and pain tolerance. We'll be here when you're ready!",
-    category: "health",
-  },
+
 ];
 
 // --- Before & After Transformations ---
@@ -413,7 +616,7 @@ export const transformations: TransformationItem[] = [
     title: "Tribal to Realistic Lion",
     description: "Complete cover-up of a faded tribal tattoo transformed into a stunning photorealistic lion portrait. The original tattoo was fully incorporated into the mane and shadow work.",
     type: "cover-up",
-    artist: "Marcus Black",
+    artist: "Satish K. Keshri",
     beforeImage: "/images/before-after-coverup.png",
     afterImage: "/images/before-after-coverup.png",
     duration: "12 hours total",
@@ -424,7 +627,7 @@ export const transformations: TransformationItem[] = [
     title: "Butterfly Color Restoration",
     description: "Faded butterfly tattoo completely rejuvenated with vibrant new colors and sharpened details. The original design was preserved while elevating the color saturation and linework.",
     type: "touch-up",
-    artist: "Luna Vex",
+    artist: "Satish K. Keshri",
     beforeImage: "/images/before-after-touchup.png",
     afterImage: "/images/before-after-touchup.png",
     duration: "4 hours",
@@ -435,7 +638,7 @@ export const transformations: TransformationItem[] = [
     title: "Rose Forearm – Healing Journey",
     description: "Follow the complete healing process of this black & grey rose tattoo from day one to fully healed at 6 weeks. Proper aftercare resulted in crisp lines and smooth shading.",
     type: "healing",
-    artist: "Marcus Black",
+    artist: "Satish K. Keshri",
     beforeImage: "/images/before-after-healing.png",
     afterImage: "/images/before-after-healing.png",
     duration: "3 hours",

@@ -7,6 +7,7 @@ import StylesSection from "@/components/sections/StylesSection";
 import ArtistsSection from "@/components/sections/ArtistsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import GalleryPreview from "@/components/sections/GalleryPreview";
+import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <ArtistsSection />
       <GalleryPreview />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </>
   );

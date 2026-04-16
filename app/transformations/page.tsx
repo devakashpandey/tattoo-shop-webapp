@@ -22,12 +22,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const filterTypes = [
-  { id: "all", label: "All" },
-  { id: "cover-up", label: "Cover-Ups" },
-  { id: "touch-up", label: "Touch-Ups" },
-  { id: "healing", label: "Healing" },
-];
 
 const typeIcons: Record<string, typeof Sparkles> = {
   "cover-up": RefreshCw,
@@ -37,7 +31,7 @@ const typeIcons: Record<string, typeof Sparkles> = {
 
 const typeColors: Record<string, string> = {
   "cover-up": "bg-crimson/20 text-crimson-light",
-  "touch-up": "bg-gold/20 text-gold",
+  "touch-up": "bg-crimson/20 text-crimson",
   healing: "bg-green-500/20 text-green-400",
 };
 
@@ -45,21 +39,18 @@ export default function TransformationsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [sliderPositions, setSliderPositions] = useState<Record<string, number>>({});
 
-  const filteredItems =
-    activeFilter === "all"
-      ? transformations
-      : transformations.filter((t) => t.type === activeFilter);
+  const filteredItems = transformations;
 
   const handleSliderChange = (id: string, value: number) => {
     setSliderPositions((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-20">
       {/* Page Hero */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
+      <section className="relative py-10 md:py-14 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-crimson/5 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center relative z-10">
           <SectionHeading
             subtitle="Real Results"
             title="Before & After"
@@ -68,31 +59,9 @@ export default function TransformationsPage() {
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {filterTypes.map((type) => (
-              <motion.button
-                key={type.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveFilter(type.id)}
-                className={`px-5 py-2 rounded-full text-xs md:text-sm font-display font-medium tracking-wider uppercase transition-all duration-300 ${
-                  activeFilter === type.id
-                    ? "bg-gold text-charcoal-dark"
-                    : "border border-gold/20 text-smoke/70 hover:text-bone hover:border-gold/40"
-                }`}
-              >
-                {type.label}
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Transformation Cards */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             <AnimatePresence>
@@ -107,28 +76,29 @@ export default function TransformationsPage() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -30 }}
-                      className="glass rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/20 transition-all duration-500"
+                      className="glass rounded-2xl overflow-hidden border border-crimson/10 hover:border-crimson/20 transition-all duration-500"
                     >
                       {/* Image Comparison Slider */}
                       <div className="relative h-[300px] md:h-[450px] overflow-hidden select-none">
-                        {/* After image (full) */}
-                        <Image
-                          src={item.afterImage}
-                          alt={`${item.title} - After`}
-                          fill
-                          className="object-cover"
-                        />
+                        <div className="absolute inset-0">
+                          <Image
+                            src={item.afterImage}
+                            alt={`${item.title} - After`}
+                            fill
+                            className="object-cover object-[75%_center] scale-[200%] md:scale-[200%]"
+                          />
+                        </div>
 
                         {/* Before image (clipped) */}
                         <div
-                          className="absolute inset-0 overflow-hidden"
+                          className="absolute inset-0 overflow-hidden z-10"
                           style={{ width: `${sliderPos}%` }}
                         >
                           <Image
                             src={item.beforeImage}
                             alt={`${item.title} - Before`}
                             fill
-                            className="object-cover"
+                            className="object-cover object-[25%_center] scale-[200%] md:scale-[200%]"
                             style={{ filter: "grayscale(30%) brightness(0.9)" }}
                           />
 
@@ -142,17 +112,17 @@ export default function TransformationsPage() {
 
                         {/* After label */}
                         <div className="absolute top-4 right-4 glass px-3 py-1.5 rounded-full">
-                          <span className="text-xs font-display font-semibold text-gold">
+                          <span className="text-xs font-display font-semibold text-crimson">
                             AFTER
                           </span>
                         </div>
 
                         {/* Slider Handle */}
                         <div
-                          className="absolute top-0 bottom-0 w-1 bg-gold cursor-ew-resize z-10"
+                          className="absolute top-0 bottom-0 w-1 bg-crimson cursor-ew-resize z-10"
                           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
                         >
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gold flex items-center justify-center shadow-lg shadow-gold/30">
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-crimson flex items-center justify-center shadow-lg shadow-crimson/30">
                             <ArrowLeftRight size={16} className="text-charcoal-dark" />
                           </div>
                         </div>
@@ -198,15 +168,15 @@ export default function TransformationsPage() {
 
                         <div className="flex flex-wrap items-center gap-4 text-sm font-display">
                           <span className="flex items-center gap-2 text-smoke/50">
-                            <User size={14} className="text-gold" />
+                            <User size={14} className="text-crimson" />
                             {item.artist}
                           </span>
                           <span className="flex items-center gap-2 text-smoke/50">
-                            <Clock size={14} className="text-gold" />
+                            <Clock size={14} className="text-crimson" />
                             {item.duration}
                           </span>
                           <span className="flex items-center gap-2 text-smoke/50">
-                            <Layers size={14} className="text-gold" />
+                            <Layers size={14} className="text-crimson" />
                             {item.sessions} session{item.sessions > 1 ? "s" : ""}
                           </span>
                         </div>
@@ -229,7 +199,7 @@ export default function TransformationsPage() {
                   <motion.span
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-gold-light transition-all glow-gold"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all glow-crimson"
                   >
                     Book Your Session
                     <ArrowRight size={14} />
@@ -239,7 +209,7 @@ export default function TransformationsPage() {
                   <motion.span
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-8 py-4 border border-gold/30 text-gold font-display font-semibold text-sm rounded-full hover:bg-gold/10 transition-all"
+                    className="inline-flex items-center gap-2 px-8 py-4 border border-crimson/30 text-crimson font-display font-semibold text-sm rounded-full hover:bg-crimson/10 transition-all"
                   >
                     Get Price Estimate
                   </motion.span>

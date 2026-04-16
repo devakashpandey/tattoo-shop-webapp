@@ -27,7 +27,7 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7 }}
-      className={`mb-12 md:mb-16 ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mb-8 md:mb-10 ${align === "center" ? "text-center" : "text-left"}`}
     >
       {subtitle && (
         <motion.span
@@ -35,14 +35,14 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="inline-block text-xs md:text-sm font-display font-semibold tracking-[0.3em] uppercase text-gold mb-4"
+          className="inline-block text-xs md:text-sm font-display font-semibold tracking-[0.3em] uppercase text-crimson mb-4"
         >
           {subtitle}
         </motion.span>
       )}
       <h2
         className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight ${
-          light ? "text-bone" : "text-gradient-gold"
+          light ? "text-bone" : "text-gradient-crimson"
         }`}
       >
         {title}
@@ -54,7 +54,7 @@ export default function SectionHeading({
       )}
       {/* Decorative line */}
       <div
-        className={`mt-6 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent ${
+        className={`mt-6 h-[1px] bg-gradient-to-r from-transparent via-crimson/40 to-transparent ${
           align === "center" ? "mx-auto w-24" : "w-16"
         }`}
       />
