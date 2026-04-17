@@ -36,12 +36,36 @@ export default function BookingPage() {
   const [notes, setNotes] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Mock calendar
-  const [currentMonth] = useState(3); // April
-  const [currentYear] = useState(2026);
+  // Dynamic calendar
+  const now = new Date();
+  const [currentMonth, setCurrentMonth] = useState(now.getMonth());
+  const [currentYear, setCurrentYear] = useState(now.getFullYear());
+  
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
-  const today = 10; // mock today
+  
+  const todayDate = new Date();
+  todayDate.setHours(0, 0, 0, 0);
+
+  const prevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+    setSelectedDate(null);
+  };
+
+  const nextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
+    setSelectedDate(null);
+  };
 
   const handleSubmit = () => {
     const artistName = artists.find((a) => a.id === selectedArtist)?.name || "Not selected";
@@ -290,13 +314,19 @@ Sent from Tattoo House`;
                   {/* Calendar */}
                   <div className="glass rounded-xl p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <button className="text-smoke hover:text-crimson transition-colors">
+                      <button 
+                        onClick={prevMonth}
+                        className="text-smoke hover:text-crimson transition-colors"
+                      >
                         <ChevronLeft size={20} />
                       </button>
                       <span className="text-sm font-display font-semibold text-bone">
                         {months[currentMonth]} {currentYear}
                       </span>
-                      <button className="text-smoke hover:text-crimson transition-colors">
+                      <button 
+                        onClick={nextMonth}
+                        className="text-smoke hover:text-crimson transition-colors"
+                      >
                         <ChevronRight size={20} />
                       </button>
                     </div>
@@ -318,9 +348,10 @@ Sent from Tattoo House`;
                       ))}
                       {Array.from({ length: daysInMonth }).map((_, i) => {
                         const day = i + 1;
-                        const isPast = day < today;
+                        const cellDate = new Date(currentYear, currentMonth, day);
+                        const isPast = cellDate < todayDate;
                         const isSelected = selectedDate === day;
-                        const isToday = day === today;
+                        const isToday = cellDate.getTime() === todayDate.getTime();
 
                         return (
                           <motion.button
@@ -349,20 +380,28 @@ Sent from Tattoo House`;
                   <div>
                     <h4 className="text-sm font-display font-semibold text-smoke/50 mb-4 flex items-center gap-2">
                       <Clock size={14} className="text-crimson" />
-                      Available Times
+                      Available Times (10 AM - 5 PM)
                     </h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {timeSlots.map((slot) => (
+                      {timeSlots.filter(s => {
+                        // Keep everything but show all 10 AM to 5 PM as available if needed
+                        // Actually the user says "10 se 5 sara open ho"
+                        // I'll show all and treat them as available
+                        const hour = parseInt(s.time);
+                        const period = s.time.includes("PM") ? "PM" : "AM";
+                        if (period === "AM" && hour === 10) return true;
+                        if (period === "AM" && hour < 10) return false;
+                        if (period === "PM" && hour <= 5) return true;
+                        if (period === "PM" && hour === 12) return true;
+                        return false;
+                      }).map((slot) => (
                         <motion.button
                           key={slot.time}
-                          whileHover={slot.available ? { scale: 1.03 } : {}}
-                          whileTap={slot.available ? { scale: 0.97 } : {}}
-                          onClick={() => slot.available && setSelectedTime(slot.time)}
-                          disabled={!slot.available}
-                          className={`py-3 px-4 rounded-lg text-sm font-display font-medium transition-all duration-200 ${!slot.available
-                            ? "bg-white/5 text-smoke/20 cursor-not-allowed line-through"
-                            : selectedTime === slot.time
-                              ? "bg-crimson text-charcoal-dark font-bold"
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
+                          onClick={() => setSelectedTime(slot.time)}
+                          className={`py-3 px-4 rounded-lg text-sm font-display font-medium transition-all duration-200 ${selectedTime === slot.time
+                              ? "bg-crimson text-charcoal-dark font-bold underline"
                               : "border border-crimson/10 text-smoke/70 hover:border-crimson/30 hover:text-bone"
                             }`}
                         >
