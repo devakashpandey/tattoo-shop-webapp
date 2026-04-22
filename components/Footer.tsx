@@ -39,12 +39,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-heading font-bold text-gradient-crimson mb-2">
-              TATTOO HOUSE
+            <h3 className="text-xl md:text-2xl font-heading font-bold text-gradient-crimson tracking-wider leading-tight mb-4">
+              INTERNATIONAL<br />TATTOO HOUSE
             </h3>
-            <p className="text-xs tracking-[0.3em] text-smoke uppercase font-display mb-4">
-              Tattoo Studio
-            </p>
             <p className="text-sm text-smoke/80 leading-relaxed mb-6">
               Where art meets skin. Premium tattoo experiences crafted by world-class artists in an environment that redefines luxury.
             </p>
@@ -160,7 +157,7 @@ export default function Footer() {
         <div className="line-crimson mt-12 mb-8" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-smoke/40 font-display">
-            © 2026 Tattoo House Studio. All rights reserved.
+            © 2026 International Tattoo House Studio. All rights reserved.
           </p>
         </div>
       </div>

@@ -34,7 +34,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tattoo House — Premium Tattoo Studio",
+  title: "International Tattoo House — Premium Tattoo Studio",
   description:
     "World-class tattoo artistry in a luxury studio environment. Custom designs, expert artists, and an unmatched experience. Book your appointment today.",
   keywords: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     "luxury tattoo",
   ],
   openGraph: {
-    title: "Tattoo House — Premium Tattoo Studio",
+    title: "International Tattoo House — Premium Tattoo Studio",
     description:
       "Where art meets skin. World-class tattoo artists crafting bespoke pieces.",
     type: "website",

@@ -50,6 +50,7 @@ export interface ServiceItem {
   duration: string;
   icon: string;
   features: string[];
+  image?: string;
 }
 
 export interface TimeSlot {
@@ -138,7 +139,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     name: "Rahul Kumar",
-    text: "Best tattoo studio in Patna. Marcus is very professional and the shop is very clean. Highly recommended for everyone!",
+    text: "Best tattoo studio in Arrah. Marcus is very professional and the shop is very clean. Highly recommended for everyone!",
     rating: 5,
     tattooType: "Portrait Realism",
     artist: "Satish K. Keshri",
@@ -472,46 +473,51 @@ export const services: ServiceItem[] = [
     id: "custom-tattoo",
     title: "Custom Tattoo Design",
     description: "Work directly with our artists to create a one-of-a-kind tattoo tailored to your vision. Includes consultation, design iterations, and the final tattoo session.",
-    priceRange: "₹150 - ₹500/hr",
+    priceRange: "₹600 - ₹5000/hr",
     duration: "Varies by complexity",
     icon: "✦",
     features: ["Personal consultation", "Custom artwork", "Unlimited revisions", "Premium inks"],
+    image: "/images/custom-tattoo.png",
+  },
+  {
+    id: "piercing",
+    title: "Professional Piercing",
+    description: "Expert body piercing services using surgical-grade titanium and 14k gold jewelry. Sterile, safe, and precise placement.",
+    priceRange: "₹500 - ₹2000",
+    duration: "15-30 minutes",
+    icon: "✧",
+    features: ["Sterile equipment", "Premium jewelry", "Aftercare guidance", "Expert placement"],
+    image: "/images/piercing_service.png",
+  },
+  {
+    id: "disease-cover",
+    title: "Medical & Scar Cover",
+    description: "Specialized medical tattooing to artistically cover scars, skin conditions, or medical marks. Restoring skin confidence through art.",
+    priceRange: "₹1000 - ₹5000+",
+    duration: "2-6 hours",
+    icon: "◈",
+    features: ["Scar camouflage", "Skin tone matching", "Compassionate care", "Life-changing results"],
+    image: "/images/scar_cover_service.png",
   },
   {
     id: "cover-up",
     title: "Cover-Up Specialist",
     description: "Transform an old or unwanted tattoo into a stunning new piece. Our artists are experts at creative cover-up solutions.",
-    priceRange: "₹200 - ₹500/hr",
+    priceRange: "₹800 - ₹1200/hr",
     duration: "2-8 hours per session",
     icon: "◈",
     features: ["Free assessment", "Creative solutions", "Color matching", "Seamless blending"],
-  },
-  {
-    id: "fine-line",
-    title: "Fine Line & Minimalist",
-    description: "Delicate, precise tattoos with elegant linework. Perfect for subtle, meaningful designs.",
-    priceRange: "₹150 - ₹350/hr",
-    duration: "1-4 hours",
-    icon: "◇",
-    features: ["Precision tools", "Detailed consultation", "Aftercare kit", "Touch-up included"],
-  },
-  {
-    id: "full-sleeve",
-    title: "Full Sleeve Package",
-    description: "A comprehensive package for full arm sleeves. Multiple sessions with your chosen artist to create a cohesive masterwork.",
-    priceRange: "₹3,000 - ₹10,000+",
-    duration: "30-60+ hours total",
-    icon: "◆",
-    features: ["Design planning", "Multiple sessions", "Priority booking", "Complimentary touch-ups"],
+    image: "/images/cover-up.png",
   },
   {
     id: "consultation",
-    title: "Free Consultation",
-    description: "Not sure what you want? Book a free consultation to discuss ideas, placement, sizing, and pricing with our artists.",
+    title: "Free Enquiry",
+    description: "Not sure what you want? Book a free enquiry to discuss ideas, placement, sizing, and pricing with our artists.",
     priceRange: "Free",
     duration: "30 minutes",
     icon: "○",
     features: ["No obligation", "Expert advice", "Reference review", "Quote estimation"],
+    image: "/images/consultation.png",
   },
 ];
 
@@ -576,7 +582,7 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-4",
     question: "How much does a tattoo cost?",
-    answer: "Pricing depends on size, complexity, style, placement, and the artist. Our rates range from ₹300-₹600/hour depending on the artist. Small pieces may have a minimum charge of ₹300-₹450. We provide free consultations where we'll give you an accurate quote based on your specific design. Use our Price Estimator tool for a quick ballpark estimate!",
+    answer: "Pricing depends on size, complexity, style, placement, and the artist. Our rates range from ₹300-₹600/hour depending on the artist. Small pieces may have a minimum charge of ₹300-₹450. We provide free enquiry where we'll give you an accurate quote based on your specific design. Use our Price Estimator tool for a quick ballpark estimate!",
     category: "pricing",
   },
   {
@@ -650,13 +656,13 @@ export const transformations: TransformationItem[] = [
 
 // --- Price Estimator Data ---
 export const tattooSizes = [
-  { id: "tiny", label: "Tiny (1-2 inches)", basePrice: 100, timeEstimate: "30-60 min" },
-  { id: "small", label: "Small (2-4 inches)", basePrice: 200, timeEstimate: "1-2 hours" },
-  { id: "medium", label: "Medium (4-6 inches)", basePrice: 400, timeEstimate: "2-4 hours" },
-  { id: "large", label: "Large (6-10 inches)", basePrice: 700, timeEstimate: "4-6 hours" },
-  { id: "xlarge", label: "Extra Large (10+ inches)", basePrice: 1200, timeEstimate: "6-10 hours" },
-  { id: "halfsleeve", label: "Half Sleeve", basePrice: 2000, timeEstimate: "15-25 hours" },
-  { id: "fullsleeve", label: "Full Sleeve", basePrice: 4000, timeEstimate: "30-60 hours" },
+  { id: "tiny", label: "Tiny (1 inch)", basePrice: 600, timeEstimate: "30-60 min" },
+  { id: "small", label: "Small (2-4 inches)", basePrice: 1200, timeEstimate: "1-2 hours" },
+  { id: "medium", label: "Medium (4-6 inches)", basePrice: 2400, timeEstimate: "2-4 hours" },
+  { id: "large", label: "Large (6-10 inches)", basePrice: 3600, timeEstimate: "4-6 hours" },
+  { id: "xlarge", label: "Extra Large (10+ inches)", basePrice: 6000, timeEstimate: "6-10 hours" },
+  { id: "halfsleeve", label: "Half Sleeve", basePrice: 12000, timeEstimate: "15-25 hours" },
+  { id: "fullsleeve", label: "Full Sleeve", basePrice: 25000, timeEstimate: "30-60 hours" },
 ];
 
 export const tattooComplexities = [

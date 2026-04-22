@@ -50,7 +50,7 @@ export default function CTASection() {
           </h2>
 
           <p className="mt-6 text-base text-smoke/70 font-display max-w-xl mx-auto leading-relaxed">
-            Book a free consultation with one of our artists and bring your vision to life. Walk-ins welcome, appointments preferred.
+            Book a free enquiry with one of our artists and bring your vision to life. Walk-ins welcome, appointments preferred.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">

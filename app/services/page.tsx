@@ -38,8 +38,20 @@ export default function ServicesPage() {
                   whileHover={{ y: -6, borderColor: "rgba(201, 168, 76, 0.3)" }}
                   className="h-full glass rounded-xl p-8 border border-crimson/5 transition-all duration-500 flex flex-col"
                 >
+                  {/* Image (Optional) */}
+                  {service.image && (
+                    <div className="relative h-48 w-full mb-6 rounded-lg overflow-hidden border border-crimson/10 shadow-inner">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/60 to-transparent" />
+                    </div>
+                  )}
+
                   {/* Icon */}
-                  <span className="text-3xl mb-6 block">{service.icon}</span>
+                  {!service.image && <span className="text-3xl mb-6 block">{service.icon}</span>}
 
                   {/* Title & Price */}
                   <h3 className="text-xl font-heading font-bold text-bone mb-2">

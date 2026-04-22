@@ -35,8 +35,8 @@ const values = [
 
 const stats = [
   { number: "15+", label: "Years of Experience" },
-  { number: "10K+", label: "Tattoos Completed" },
-  { number: "50+", label: "Awards Won" },
+  { number: "25K+", label: "Tattoos Completed" },
+  { number: "20+", label: "Awards Won" },
   { number: "100%", label: "Premium Inks" },
 ];
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center relative z-10">
           <SectionHeading
             subtitle="Our Story"
-            title="About Tattoo House"
+            title="About International Tattoo House"
             description="More than a tattoo studio — we're a collective of artists dedicated to transforming your ideas into permanent works of art."
           />
         </div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 <motion.div style={{ y }} className="absolute inset-[-60px]">
                   <Image
                     src="/tattoos/hero-section.jpeg"
-                    alt="Tattoo House Studio"
+                    alt="International Tattoo House Studio"
                     fill
                     className="object-cover"
                   />
@@ -102,7 +102,7 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-sm text-smoke/70 font-display leading-relaxed">
                 <p>
-                  Tattoo House was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of LA&apos;s Art District has grown into a globally recognized destination for premium tattoo artistry.
+                  International Tattoo House was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of LA&apos;s Art District has grown into a globally recognized destination for premium tattoo artistry.
                 </p>
                 <p>
                   Our studio is more than a place to get tattooed — it&apos;s an immersive experience. From the moment you walk through our doors, you&apos;re enveloped in an atmosphere that celebrates creativity, craftsmanship, and individual expression.

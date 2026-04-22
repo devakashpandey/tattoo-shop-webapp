@@ -67,7 +67,7 @@ export default function ContactPage() {
       return;
     }
 
-    const messageContent = `*New Inquiry from Tattoo House Website*%0A%0A*Name:* ${formName}%0A*Email:* ${formEmail}%0A*Message:* ${formMessage}`;
+    const messageContent = `*New Inquiry from International Tattoo House Website*%0A%0A*Name:* ${formName}%0A*Email:* ${formEmail}%0A*Message:* ${formMessage}`;
     const whatsappUrl = `https://wa.me/919304328528?text=${messageContent}`;
     
     window.open(whatsappUrl, "_blank");

@@ -124,11 +124,10 @@ export default function EstimatorPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedSize(size.id)}
-                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
-                          selectedSize === size.id
+                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${selectedSize === size.id
                             ? "bg-crimson/15 border-crimson/40 text-crimson"
                             : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
-                        }`}
+                          }`}
                       >
                         <span className="font-medium">{size.label}</span>
                         <span className="block text-xs mt-0.5 opacity-60">
@@ -158,11 +157,10 @@ export default function EstimatorPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedComplexity(c.id)}
-                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
-                          selectedComplexity === c.id
+                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${selectedComplexity === c.id
                             ? "bg-crimson/15 border-crimson/40 text-crimson"
                             : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
-                        }`}
+                          }`}
                       >
                         {c.label}
                       </motion.button>
@@ -189,11 +187,10 @@ export default function EstimatorPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedColor(c.id)}
-                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
-                          selectedColor === c.id
+                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${selectedColor === c.id
                             ? "bg-crimson/15 border-crimson/40 text-crimson"
                             : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
-                        }`}
+                          }`}
                       >
                         {c.label}
                       </motion.button>
@@ -220,11 +217,10 @@ export default function EstimatorPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setSelectedPlacement(p.id)}
-                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${
-                          selectedPlacement === p.id
+                        className={`text-left px-4 py-3 rounded-lg text-sm font-display transition-all duration-300 border ${selectedPlacement === p.id
                             ? "bg-crimson/15 border-crimson/40 text-crimson"
                             : "border-crimson/5 text-smoke/70 hover:border-crimson/20 hover:text-bone"
-                        }`}
+                          }`}
                       >
                         <span className="font-medium">{p.label}</span>
                         <span className="flex items-center gap-1 text-xs mt-0.5">
@@ -341,7 +337,7 @@ export default function EstimatorPage() {
 
                           {/* Disclaimer */}
                           <p className="text-[10px] text-smoke/30 font-display mt-4 text-center leading-relaxed">
-                            * This is an approximate estimate. Final pricing depends on design complexity, artist, and consultation. Get an exact quote during your free consultation.
+                            * This is an approximate estimate. Final pricing depends on design complexity, artist, and consultation. Get an exact quote during your free Enquiry.
                           </p>
                         </motion.div>
                       ) : (

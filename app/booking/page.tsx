@@ -85,7 +85,7 @@ Time: ${timeStr}
 --------------------------
 Notes: ${notes || "None"}
 --------------------------
-Sent from Tattoo House`;
+Sent from International Tattoo House`;
 
     const phoneNumber = "919304328528";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

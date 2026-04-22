@@ -47,11 +47,8 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="relative"
             >
-              <span className="text-xl md:text-2xl font-heading font-bold text-gradient-crimson tracking-wider">
-                TATTOO HOUSE
-              </span>
-              <span className="block text-[8px] md:text-[10px] tracking-[0.3em] text-smoke uppercase font-display">
-                Tattoo Studio
+              <span className="text-base md:text-lg font-heading font-bold text-gradient-crimson tracking-wider leading-tight block">
+                INTERNATIONAL<br />TATTOO HOUSE
               </span>
             </motion.div>
           </Link>
@@ -139,11 +136,8 @@ export default function Navbar() {
               {/* Menu Header */}
               <div className="flex items-center justify-between p-6 border-b border-white/5">
                 <div className="flex flex-col">
-                  <span className="text-xl font-heading font-bold text-gradient-crimson tracking-wider">
-                    TATTOO HOUSE
-                  </span>
-                  <span className="text-[8px] tracking-[0.3em] text-smoke uppercase font-display">
-                    Tattoo Studio
+                  <span className="text-lg font-heading font-bold text-gradient-crimson tracking-wider leading-tight block">
+                    INTERNATIONAL<br />TATTOO HOUSE
                   </span>
                 </div>
                 <button 
