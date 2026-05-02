@@ -34,7 +34,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tattoohouseara.com'),
+  metadataBase: new URL('https://tattoohouseara.vercel.app'),
   title: {
     default: "Tattoo House Ara — Best Tattoo Studio in Ara, Bihar",
     template: "%s | Tattoo House Ara"
@@ -64,13 +64,13 @@ export const metadata: Metadata = {
     telephone: true,
   },
   openGraph: {
-    title: "Tattoo House Ara — Premium Tattoo Studio in Bihar",
-    description: "The most trusted name for custom tattoos in Ara. Experience world-class artistry and hygiene.",
-    url: 'https://tattoohouseara.com',
+    title: 'Tattoo House Ara — Premium Tattoo Studio in Bihar',
+    description: 'The most trusted name for custom tattoos in Ara. Experience world-class artistry and hygiene.',
+    url: 'https://tattoohouseara.vercel.app',
     siteName: 'Tattoo House Ara',
     images: [
       {
-        url: '/logo.png',
+        url: 'https://tattoohouseara.vercel.app/logo.png',
         width: 1200,
         height: 630,
         alt: 'Tattoo House Ara Logo',
@@ -81,10 +81,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/logo.png', sizes: 'any' },
-      { url: '/logo.png', type: 'image/png' },
+      { url: 'https://tattoohouseara.vercel.app/logo.png', sizes: 'any' },
+      { url: 'https://tattoohouseara.vercel.app/logo.png', type: 'image/png' },
     ],
-    apple: '/logo.png',
+    apple: 'https://tattoohouseara.vercel.app/logo.png',
   },
   alternates: {
     canonical: '/',
@@ -149,7 +149,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${poppins.variable} ${manrope.variable} ${nunito.variable} ${openSans.variable} h-full antialiased`}>
       <head>
-        <link rel="icon" href="/logo.png" sizes="any" />
+        <link rel="icon" href="https://tattoohouseara.vercel.app/logo.png" sizes="any" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
