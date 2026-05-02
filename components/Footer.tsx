@@ -5,6 +5,7 @@
 // ============================================================
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Instagram, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react";
 
@@ -39,9 +40,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <h3 className="text-xl md:text-2xl font-heading font-bold text-gradient-crimson tracking-wider leading-tight mb-4">
-              INTERNATIONAL<br />TATTOO HOUSE
-            </h3>
+            <div className="flex items-center gap-4 mb-6">
+              <Image 
+                src="/logo.png" 
+                alt="Tattoo House Ara" 
+                width={48} 
+                height={48} 
+                className="h-12 w-auto object-contain brightness-110"
+              />
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-gradient-crimson tracking-wider leading-tight">
+                Tattoo House Ara
+              </h3>
+            </div>
             <p className="text-sm text-smoke/80 leading-relaxed mb-6">
               Where art meets skin. Premium tattoo experiences crafted by world-class artists in an environment that redefines luxury.
             </p>
@@ -136,10 +146,6 @@ export default function Footer() {
                 <Phone size={16} className="text-crimson shrink-0" />
                 <a href="tel:+919304328528" className="hover:text-crimson transition-colors">+91 9304328528</a>
               </li>
-              <li className="flex items-center gap-3 text-sm text-smoke/70">
-                <Mail size={16} className="text-crimson shrink-0" />
-                <span>contact@tattoohouse.com</span>
-              </li>
             </ul>
 
             <div className="mt-6">
@@ -157,7 +163,7 @@ export default function Footer() {
         <div className="line-crimson mt-12 mb-8" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-smoke/40 font-display">
-            © 2026 International Tattoo House Studio. All rights reserved.
+            © 2026 Tattoo House Ara Studio. All rights reserved.
           </p>
         </div>
       </div>

@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center relative z-10">
           <SectionHeading
             subtitle="Our Story"
-            title="About International Tattoo House"
+            title="About Tattoo House Ara "
             description="More than a tattoo studio — we're a collective of artists dedicated to transforming your ideas into permanent works of art."
           />
         </div>
@@ -72,8 +72,9 @@ export default function AboutPage() {
                 <motion.div style={{ y }} className="absolute inset-[-60px]">
                   <Image
                     src="/tattoos/hero-section.jpeg"
-                    alt="International Tattoo House Studio"
+                    alt="Tattoo House Ara  Studio"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </motion.div>
@@ -85,7 +86,7 @@ export default function AboutPage() {
                     Est. 2010
                   </p>
                   <p className="text-sm text-bone font-display mt-1">
-                    Los Angeles, CA
+                    Arrah, Bihar
                   </p>
                 </div>
               </div>
@@ -102,7 +103,7 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-sm text-smoke/70 font-display leading-relaxed">
                 <p>
-                  International Tattoo House was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of LA&apos;s Art District has grown into a globally recognized destination for premium tattoo artistry.
+                  Tattoo House Ara was founded in 2010 with a singular vision: to elevate tattooing to its rightful place among the fine arts. What started as a small studio in the heart of Arrah has grown into a globally recognized destination for premium tattoo artistry.
                 </p>
                 <p>
                   Our studio is more than a place to get tattooed — it&apos;s an immersive experience. From the moment you walk through our doors, you&apos;re enveloped in an atmosphere that celebrates creativity, craftsmanship, and individual expression.

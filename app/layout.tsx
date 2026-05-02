@@ -34,23 +34,111 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "International Tattoo House — Premium Tattoo Studio",
-  description:
-    "World-class tattoo artistry in a luxury studio environment. Custom designs, expert artists, and an unmatched experience. Book your appointment today.",
-  keywords: [
-    "tattoo studio",
-    "custom tattoos",
-    "tattoo artist",
-    "realism tattoo",
-    "fine line tattoo",
-    "luxury tattoo",
-  ],
-  openGraph: {
-    title: "International Tattoo House — Premium Tattoo Studio",
-    description:
-      "Where art meets skin. World-class tattoo artists crafting bespoke pieces.",
-    type: "website",
+  metadataBase: new URL('https://tattoohouseara.com'),
+  title: {
+    default: "Tattoo House Ara — Best Tattoo Studio in Ara, Bihar",
+    template: "%s | Tattoo House Ara"
   },
+  description:
+    "Tattoo House Ara is the premier tattoo studio in Bihar. Specializing in Realism, Portraits, Religious tattoos, and Mandala art. Visit the best tattoo artist in Ara for custom designs and professional piercings.",
+  keywords: [
+    "Tattoo House",
+    "Tattoo House Ara",
+    "Tattoo House Bihar",
+    "Best tattoo studio in Ara",
+    "Best tattoo artist in Bihar",
+    "Tattoo shop in Ara",
+    "Custom tattoos Ara",
+    "Portrait tattoo artist Bihar",
+    "Religious tattoos Ara",
+    "Mandala tattoo Ara",
+    "Professional piercing Ara",
+    "Tattoo House international",
+  ],
+  authors: [{ name: "Satish K. Keshri" }],
+  creator: "Satish K. Keshri",
+  publisher: "Tattoo House Ara",
+  formatDetection: {
+    email: false,
+    address: true,
+    telephone: true,
+  },
+  openGraph: {
+    title: "Tattoo House Ara — Premium Tattoo Studio in Bihar",
+    description: "The most trusted name for custom tattoos in Ara. Experience world-class artistry and hygiene.",
+    url: 'https://tattoohouseara.com',
+    siteName: 'Tattoo House Ara',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tattoo House Ara Logo',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  icons: {
+    icon: [
+      { url: '/logo.png', sizes: 'any' },
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    apple: '/logo.png',
+  },
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TattooShop",
+  "name": "Tattoo House Ara",
+  "image": "https://tattoohouseara.com/tattoos/hero-banner.jpeg",
+  "@id": "https://tattoohouseara.com",
+  "url": "https://tattoohouseara.com",
+  "telephone": "+919304328528",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Babu bajar mod, Mahadeva Road",
+    "addressLocality": "Arrah",
+    "addressRegion": "Bihar",
+    "postalCode": "802301",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.5609,
+    "longitude": 84.6699
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "10:00",
+    "closes": "20:00"
+  },
+  "sameAs": [
+    "https://www.instagram.com/tattoohouseara"
+  ]
 };
 
 export default function RootLayout({
@@ -59,7 +147,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${manrope.variable} ${nunito.variable} ${openSans.variable} h-full antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${poppins.variable} ${manrope.variable} ${nunito.variable} ${openSans.variable} h-full antialiased`}>
+      <head>
+        <link rel="icon" href="/logo.png" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-1">{children}</main>

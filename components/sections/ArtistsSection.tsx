@@ -43,6 +43,7 @@ export default function ArtistsSection() {
                   src={artist.image}
                   alt={artist.name}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 

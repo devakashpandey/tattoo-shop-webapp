@@ -56,7 +56,7 @@ export default function HeroSection() {
             {backgrounds[currentIndex].type === "image" ? (
               <Image
                 src={backgrounds[currentIndex].src}
-                alt="International Tattoo House Studio Background"
+                alt="Tattoo House Ara  Studio Background"
                 fill
                 className="object-cover"
                 priority

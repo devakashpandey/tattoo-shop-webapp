@@ -25,6 +25,8 @@ export default function CTASection() {
           src="/images/studio.png"
           alt="Tattoo studio"
           fill
+          sizes="100vw"
+          loading="eager"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/80" />

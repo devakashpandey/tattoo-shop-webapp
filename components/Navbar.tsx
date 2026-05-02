@@ -10,6 +10,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
@@ -34,21 +35,28 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "glass py-3 shadow-lg shadow-black/20"
-            : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "glass py-3 md:py-5 shadow-lg shadow-black/20"
+          : "bg-transparent py-4 md:py-8"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
           {/* Logo — Left */}
           <Link href="/" className="group flex items-center gap-2 shrink-0">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative"
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-3"
             >
-              <span className="text-base md:text-lg font-heading font-bold text-gradient-crimson tracking-wider leading-tight block">
-                INTERNATIONAL<br />TATTOO HOUSE
+              <Image 
+                src="/logo.png" 
+                alt="Tattoo House Ara" 
+                width={40} 
+                height={40} 
+                className="h-10 w-auto object-contain brightness-110"
+                priority
+              />
+              <span className="text-sm md:text-xl font-heading font-bold text-gradient-crimson tracking-wider leading-[1.1] block">
+                Tattoo House Ara
               </span>
             </motion.div>
           </Link>
@@ -66,15 +74,13 @@ export default function Navbar() {
                   <Link key={link.href} href={link.href} className="group/nav">
                     <motion.span
                       whileHover={{ y: -1 }}
-                      className={`relative px-2 py-2 text-[10px] xl:text-xs font-display font-bold tracking-[0.15em] uppercase transition-all duration-300 ${
-                        isActive ? "text-crimson" : "text-bone/60 hover:text-crimson"
-                      }`}
+                      className={`relative px-2 py-2 text-[10px] xl:text-xs font-display font-bold tracking-[0.15em] uppercase transition-all duration-300 ${isActive ? "text-crimson" : "text-bone/60 hover:text-crimson"
+                        }`}
                     >
                       {link.label}
                       <motion.span
-                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] bg-crimson rounded-full transition-all duration-300 ${
-                          isActive ? "w-4 opacity-100" : "w-0 opacity-0 group-hover/nav:w-3 group-hover/nav:opacity-50"
-                        }`}
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] bg-crimson rounded-full transition-all duration-300 ${isActive ? "w-4 opacity-100" : "w-0 opacity-0 group-hover/nav:w-3 group-hover/nav:opacity-50"
+                          }`}
                       />
                     </motion.span>
                   </Link>
@@ -117,7 +123,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-[60] lg:hidden"
           >
             {/* Backdrop */}
             <div
@@ -134,13 +140,20 @@ export default function Navbar() {
               className="absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-charcoal-dark border-l border-crimson/10 flex flex-col pt-0 overflow-hidden shadow-2xl"
             >
               {/* Menu Header */}
-              <div className="flex items-center justify-between p-6 border-b border-white/5">
-                <div className="flex flex-col">
-                  <span className="text-lg font-heading font-bold text-gradient-crimson tracking-wider leading-tight block">
-                    INTERNATIONAL<br />TATTOO HOUSE
+              <div className="flex items-center justify-between p-4 border-b border-white/5">
+                <div className="flex items-center gap-3">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Tattoo House Ara" 
+                    width={32} 
+                    height={32} 
+                    className="h-8 w-auto object-contain brightness-110"
+                  />
+                  <span className="text-sm font-heading font-bold text-gradient-crimson tracking-wider leading-tight block">
+                    Tattoo House Ara
                   </span>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 text-smoke hover:text-crimson transition-colors"
                 >
@@ -149,8 +162,8 @@ export default function Navbar() {
               </div>
 
               {/* Menu Links */}
-              <div className="flex flex-col px-8 py-10 gap-2 overflow-y-auto">
-                {navLinks.map((link, i) => {
+              <div className="flex flex-col px-8 py-6 gap-1 overflow-y-auto no-scrollbar">
+                {navLinks.filter(l => l.href !== "/booking").map((link, i) => {
                   const isActive = pathname === link.href;
                   return (
                     <motion.div
@@ -162,9 +175,8 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`block py-4 text-xl font-display font-medium border-b border-white/5 transition-colors ${
-                          isActive ? "text-crimson" : "text-bone/70 hover:text-bone"
-                        }`}
+                        className={`block py-3 text-base font-display font-medium border-b border-white/5 transition-colors ${isActive ? "text-crimson" : "text-bone/70 hover:text-bone"
+                          }`}
                       >
                         {link.label}
                       </Link>
@@ -174,12 +186,20 @@ export default function Navbar() {
               </div>
 
               {/* Menu Footer */}
-              <div className="mt-auto p-8 bg-black/20">
-                <p className="text-[10px] text-smoke/50 font-display tracking-widest uppercase mb-4">Crafting Bespoke Art</p>
-                <div className="flex gap-6">
-                  <a href="https://instagram.com" className="text-xs text-bone/60 hover:text-crimson transition-colors font-display">Insta</a>
-                  <a href="https://wa.me/919304328528" className="text-xs text-bone/60 hover:text-crimson transition-colors font-display">WhatsApp</a>
-                  <a href="mailto:contact@tattoohouse.com" className="text-xs text-bone/60 hover:text-crimson transition-colors font-display">Email</a>
+              <div className="mt-auto p-8 bg-black/20 flex flex-col gap-6">
+                <Link 
+                  href="/booking"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm text-center rounded-xl glow-crimson shadow-lg shadow-crimson/20"
+                >
+                  BOOK AN APPOINTMENT
+                </Link>
+                <div>
+                  <p className="text-[10px] text-smoke/50 font-display tracking-widest uppercase mb-4">Crafting Bespoke Art</p>
+                  <div className="flex gap-6">
+                    <a href="https://instagram.com" className="text-xs text-bone/60 hover:text-crimson transition-colors font-display">Insta</a>
+                    <a href="https://wa.me/919304328528" className="text-xs text-bone/60 hover:text-crimson transition-colors font-display">WhatsApp</a>
+                  </div>
                 </div>
               </div>
             </motion.nav>

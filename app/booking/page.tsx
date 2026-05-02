@@ -40,10 +40,10 @@ export default function BookingPage() {
   const now = new Date();
   const [currentMonth, setCurrentMonth] = useState(now.getMonth());
   const [currentYear, setCurrentYear] = useState(now.getFullYear());
-  
+
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const firstDayOfWeek = new Date(currentYear, currentMonth, 1).getDay();
-  
+
   const todayDate = new Date();
   todayDate.setHours(0, 0, 0, 0);
 
@@ -85,7 +85,7 @@ Time: ${timeStr}
 --------------------------
 Notes: ${notes || "None"}
 --------------------------
-Sent from International Tattoo House`;
+Sent from Tattoo House Ara `;
 
     const phoneNumber = "919304328528";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -314,7 +314,7 @@ Sent from International Tattoo House`;
                   {/* Calendar */}
                   <div className="glass rounded-xl p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <button 
+                      <button
                         onClick={prevMonth}
                         className="text-smoke hover:text-crimson transition-colors"
                       >
@@ -323,7 +323,7 @@ Sent from International Tattoo House`;
                       <span className="text-sm font-display font-semibold text-bone">
                         {months[currentMonth]} {currentYear}
                       </span>
-                      <button 
+                      <button
                         onClick={nextMonth}
                         className="text-smoke hover:text-crimson transition-colors"
                       >
@@ -401,8 +401,8 @@ Sent from International Tattoo House`;
                           whileTap={{ scale: 0.97 }}
                           onClick={() => setSelectedTime(slot.time)}
                           className={`py-3 px-4 rounded-lg text-sm font-display font-medium transition-all duration-200 ${selectedTime === slot.time
-                              ? "bg-crimson text-charcoal-dark font-bold underline"
-                              : "border border-crimson/10 text-smoke/70 hover:border-crimson/30 hover:text-bone"
+                            ? "bg-crimson text-charcoal-dark font-bold underline"
+                            : "border border-crimson/10 text-smoke/70 hover:border-crimson/30 hover:text-bone"
                             }`}
                         >
                           {slot.time}
