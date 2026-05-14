@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================
-// HeroSection — Fullscreen immersive hero with parallax
+// HeroSection — Enhanced Premium Hero with Ken Burns Effect
 // ============================================================
 
 import { useState, useEffect, useRef } from "react";
@@ -22,7 +22,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 3500);
+    }, 5000); // Increased duration for a more relaxed premium feel
     return () => clearInterval(timer);
   }, [backgrounds.length]);
 
@@ -32,35 +32,65 @@ export default function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const headingVariants = {
+    hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0, y: 50 },
+    visible: {
+      clipPath: "inset(0% 0% 0% 0%)",
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
     <section
       ref={ref}
       id="hero"
-      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative h-screen min-h-[750px] flex items-center justify-center overflow-hidden bg-charcoal-dark"
     >
-      {/* Background Slideshow */}
+      {/* Background Slideshow - Premium Ken Burns Effect */}
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <AnimatePresence initial={false}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             {backgrounds[currentIndex].type === "image" ? (
               <Image
                 src={backgrounds[currentIndex].src}
-                alt="Tattoo House Ara  Studio Background"
+                alt="Tattoo House Ara Studio"
                 fill
-                className="object-cover"
+                className="object-cover brightness-[0.85]"
                 priority
-                quality={90}
+                quality={100}
               />
             ) : (
               <video
@@ -69,87 +99,83 @@ export default function HeroSection() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover brightness-[0.85]"
               />
             )}
           </motion.div>
         </AnimatePresence>
 
-        {/* Dark gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-10" />
+        {/* Sophisticated Layered Overlays - Lightened */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/60 via-transparent to-charcoal-dark/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/70 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-charcoal-dark/10 to-charcoal-dark/40 z-10" />
       </motion.div>
 
-      {/* Noise overlay */}
-      <div className="absolute inset-0 noise z-[1]" />
+      {/* Subtle Noise Texture */}
+      <div className="absolute inset-0 noise opacity-20 z-[1] pointer-events-none" />
 
-      {/* Content */}
+      {/* Content Container */}
       <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         style={{ opacity }}
-        className="relative z-10 text-center px-4 max-w-5xl"
+        className="relative z-20 text-center px-6 max-w-5xl"
       >
-        {/* Decorative top */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mx-auto w-20 h-[1px] bg-crimson mb-8"
-        />
+        {/* Hidden SEO Heading for Search Engines */}
+        <h1 className="sr-only">
+          Tattoo House Ara - Best Tattoo Shop in Ara, Top Tattoo Studio in Bihar, Professional Tattoo Artist in Arrah
+        </h1>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-xs md:text-sm tracking-[0.4em] uppercase text-crimson font-display font-medium mb-6"
-        >
-          Premium Tattoo Artistry
-        </motion.p>
+        {/* Animated Accent Line & Subtitle */}
+        <motion.div variants={itemVariants} className="flex items-center justify-center gap-4 mb-8">
+          <div className="w-12 h-[1px] bg-crimson/50" />
+          <p className="text-[10px] md:text-xs tracking-[0.6em] uppercase text-crimson font-display font-semibold">
+            Premium Tattoo Artistry
+          </p>
+          <div className="w-12 h-[1px] bg-crimson/50" />
+        </motion.div>
 
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.95] mb-6"
+        {/* Main Heading with Reveal Effect */}
+        <motion.h2
+          variants={headingVariants}
+          className="text-6xl md:text-8xl lg:text-9xl font-heading font-black leading-[0.9] mb-8 tracking-tighter"
         >
-          <span className="text-bone">Where Art</span>
+          <span className="text-bone inline-block">Where Art</span>
           <br />
-          <span className="text-gradient-crimson">Meets Skin</span>
-        </motion.h1>
+          <span className="text-gradient-crimson inline-block mt-2">Meets Skin</span>
+        </motion.h2>
 
-        {/* Description */}
+        {/* Description with enhanced spacing */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-base md:text-lg text-smoke/80 font-display max-w-xl mx-auto mb-10 leading-relaxed"
+          variants={itemVariants}
+          className="text-base md:text-xl text-smoke/90 font-display max-w-2xl mx-auto mb-12 leading-relaxed font-light"
         >
           World-class tattoo artist crafting bespoke pieces in a premium studio
-          environment. Your vision, our expertise.
+          environment. <span className="text-bone/60">Your vision, our expertise.</span>
         </motion.p>
 
-        {/* CTAs */}
+        {/* Premium CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Link href="/booking">
             <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-crimson text-charcoal-dark font-display font-bold text-sm rounded-full hover:bg-crimson-light transition-all duration-300 glow-crimson tracking-wide uppercase"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative inline-flex items-center px-10 py-5 bg-crimson text-white font-display font-bold text-xs rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.5)] tracking-[0.2em] uppercase"
             >
-              Book Appointment
+              <span className="relative z-10">Book Appointment</span>
+              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </motion.span>
           </Link>
+          
           <Link href="/gallery">
             <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 border border-crimson/30 text-crimson font-display font-semibold text-sm rounded-full hover:bg-crimson/10 transition-all duration-300 tracking-wide uppercase"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center px-10 py-5 border border-white/10 bg-white/5 backdrop-blur-md text-bone font-display font-semibold text-xs rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-500 tracking-[0.2em] uppercase"
             >
               View Our Work
             </motion.span>
@@ -157,24 +183,31 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Floating Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 1 }}
         style={{ opacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4"
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-smoke/50 font-display">
-          Scroll
+        <span className="text-[9px] tracking-[0.5em] uppercase text-smoke/40 font-display rotate-0 sm:rotate-0">
+          Explore
         </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <ArrowDown size={16} className="text-crimson/60" />
-        </motion.div>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-crimson to-transparent relative overflow-hidden">
+          <motion.div
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 bg-white/40 h-1/2 w-full"
+          />
+        </div>
       </motion.div>
+
+      {/* Decorative side element */}
+      <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-8 opacity-20 z-20">
+        <div className="w-px h-20 bg-bone" />
+        <span className="text-[10px] tracking-[1em] uppercase text-bone vertical-text">ESTD 2024</span>
+      </div>
     </section>
   );
 }

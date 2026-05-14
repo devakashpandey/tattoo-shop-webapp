@@ -195,47 +195,47 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g1",
     "src": "/tattoos/1.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Mandala Tattoo Art in Ara Bihar by Satish Keshri",
+    "category": "mandala",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g2",
     "src": "/tattoos/2.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Maori Armband Tattoo in Arrah Bihar",
+    "category": "band",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g3",
     "src": "/tattoos/3.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Mahadev Religious Tattoo Best Studio Ara",
+    "category": "religious",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g4",
     "src": "/tattoos/4.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Minimalist Tiny Tattoo Design Tattoo House Ara",
+    "category": "minimalist",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g5",
     "src": "/tattoos/5.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Portrait Realism Tattoo Best Artist in Bihar",
+    "category": "realism",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g6",
     "src": "/tattoos/6.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Custom Tattoo Art Tattoo House International Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -243,7 +243,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g7",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.18 PM (1).jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Tattoo Shop in Ara Bihar Portfolio",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -251,7 +251,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g8",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.22 PM (1).jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Top Rated Tattoo Artist Arrah Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -259,7 +259,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g9",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.24 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Professional Tattoo Studio in Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -267,15 +267,15 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g10",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.25 PM (1).jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Religious Spiritual Tattoo House Ara",
+    "category": "religious",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g11",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.25 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Custom Ink Design Tattoo Shop Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -283,7 +283,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g12",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.27 PM (1).jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Piercing and Tattoo Shop Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -291,7 +291,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g13",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.27 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Ara Portfolio Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -299,7 +299,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g14",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.28 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Fine Line Tattoo Art Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -307,7 +307,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g15",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.29 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "International Tattoo House Work Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -315,7 +315,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g16",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.30 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Arrah Best Service",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -323,7 +323,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g17",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.32 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Professional Ink Shop Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -331,23 +331,23 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g18",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.35 PM.jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Mandala Artist Ara Tattoo House",
+    "category": "mandala",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g19",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.36 PM (1).jpeg",
-    "alt": "Tattoo Design",
-    "category": "all",
+    "alt": "Best Portrait Tattoo in Bihar Ara",
+    "category": "realism",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
   },
   {
     "id": "g20",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.44.36 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Top Tattoo Studio Bihar Ara Arrah",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -355,7 +355,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g21",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.55.54 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House International Premium Art",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -363,7 +363,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g22",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.01 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Quality Tattoo Shop Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -371,7 +371,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g23",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.03 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Ara Custom Design",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -379,7 +379,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g24",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.05 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Arrah Best Tattoo Studio Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -387,7 +387,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g25",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 2.56.23 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Hygienic Tattoo Shop Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -395,7 +395,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g26",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.56 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Tattoo Parlor in Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -403,7 +403,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g27",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.57 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "International Quality Tattoos in Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -411,7 +411,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g28",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.55.58 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Ara Best Portfolio",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -419,7 +419,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g29",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.00 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Top Rated Tattoo Artist Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -427,7 +427,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g30",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.01 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Creative Tattoo Artist Ara Bihar",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -435,7 +435,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g31",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.02 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Safe and Professional Tattoos Ara",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -443,7 +443,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g32",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.08 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Ink Shop Bihar Ara Arrah",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -451,7 +451,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g33",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.12 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Ara Instagram Designs",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -459,7 +459,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g34",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 3.56.21 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Tattoo House Arrah Professional Piercing",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"
@@ -467,7 +467,7 @@ export const galleryItems: GalleryItem[] = [
   {
     "id": "g35",
     "src": "/tattoos/WhatsApp Image 2026-04-16 at 5.01.23 PM.jpeg",
-    "alt": "Tattoo Design",
+    "alt": "Best Tattoo Artist in Bihar Portfolio",
     "category": "all",
     "artist": "Satish K. Keshri",
     "aspectRatio": "portrait"

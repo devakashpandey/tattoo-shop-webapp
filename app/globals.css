@@ -216,3 +216,12 @@
 .pause-animation {
   animation-play-state: paused !important;
 }
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+}
