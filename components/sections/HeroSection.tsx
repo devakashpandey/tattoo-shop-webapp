@@ -7,7 +7,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, Variants } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
@@ -36,7 +36,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -47,7 +47,7 @@ export default function HeroSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -56,7 +56,7 @@ export default function HeroSection() {
     },
   };
 
-  const headingVariants = {
+  const headingVariants: Variants = {
     hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0, y: 50 },
     visible: {
       clipPath: "inset(0% 0% 0% 0%)",
