@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, AnimatePresence, Variants } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,15 +16,22 @@ export default function HeroSection() {
     { type: "image", src: "/tattoos/hero-section.jpeg" },
     { type: "image", src: "/tattoos/hero-banner.jpeg" },
     { type: "image", src: "/tattoos/hero-banner2.jpeg" },
-    { type: "video", src: "/tattoos/vid.mp4" },
   ];
 
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + backgrounds.length) % backgrounds.length);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % backgrounds.length);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 5000); // Increased duration for a more relaxed premium feel
-    return () => clearInterval(timer);
-  }, [backgrounds.length]);
+    const timer = setTimeout(() => {
+      handleNext();
+    }, 6000); // 6 seconds auto-slide
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
 
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -72,44 +79,62 @@ export default function HeroSection() {
       id="hero"
       className="relative h-screen min-h-[750px] flex items-center justify-center overflow-hidden bg-charcoal-dark"
     >
-      {/* Background Slideshow - Premium Ken Burns Effect */}
-      <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+      {/* Background Slideshow - Premium Carousel Slider */}
+      <motion.div style={{ y, scale }} className="absolute inset-0 z-0 overflow-hidden">
+        {backgrounds.map((bg, idx) => (
           <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
-            className="absolute inset-0"
+            key={idx}
+            initial={false}
+            animate={{ x: `${(idx - currentIndex) * 100}%` }}
+            transition={{ type: "tween", ease: "easeInOut", duration: 0.8 }}
+            className="absolute inset-0 w-full h-full"
           >
-            {backgrounds[currentIndex].type === "image" ? (
-              <Image
-                src={backgrounds[currentIndex].src}
-                alt="Tattoo House Ara Studio"
-                fill
-                className="object-cover brightness-[0.85]"
-                priority
-                quality={100}
-              />
-            ) : (
-              <video
-                src={backgrounds[currentIndex].src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover brightness-[0.85]"
-              />
-            )}
+            <Image
+              src={bg.src}
+              alt="Tattoo House Ara Studio"
+              fill
+              priority={true}
+              sizes="100vw"
+              className="object-cover brightness-100"
+              quality={90}
+            />
           </motion.div>
-        </AnimatePresence>
+        ))}
 
         {/* Sophisticated Layered Overlays - Lightened */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/60 via-transparent to-charcoal-dark/80 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/70 via-transparent to-transparent z-10" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-charcoal-dark/10 to-charcoal-dark/40 z-10" />
+        <div className="absolute inset-0 bg-black/10 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 z-10" />
       </motion.div>
+
+      {/* Manual Navigation Controls */}
+      <button
+        onClick={handlePrev}
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-black/20 text-bone hover:bg-crimson hover:border-crimson transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
+        aria-label="Previous Slide"
+      >
+        <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" />
+      </button>
+      <button
+        onClick={handleNext}
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-black/20 text-bone hover:bg-crimson hover:border-crimson transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5" />
+      </button>
+
+      {/* Indicator Dots */}
+      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
+        {backgrounds.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
+              idx === currentIndex ? "w-8 bg-crimson" : "w-2 bg-white/30 hover:bg-white/50"
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Subtle Noise Texture */}
       <div className="absolute inset-0 noise opacity-20 z-[1] pointer-events-none" />
@@ -120,7 +145,7 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
         style={{ opacity }}
-        className="relative z-20 text-center px-6 max-w-5xl"
+        className="relative z-20 text-center px-6 max-w-5xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
       >
         {/* Hidden SEO Heading for Search Engines */}
         <h1 className="sr-only">
